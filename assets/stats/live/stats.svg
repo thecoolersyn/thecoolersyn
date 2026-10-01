@@ -1,15 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="200" viewBox="0 0 480 200" role="img" aria-labelledby="t d">
+  <title id="t">GitHub statistics — awaiting token</title>
+  <desc id="d">Placeholder card. The stats workflow needs a STATS_PAT secret with read:user scope before it can build this card, because the GITHUB_TOKEN cannot read repository stargazers.</desc>
 
-    <svg width="576.5"  height="120" viewBox="0 0 576.5 120" fill="#0A0E14" xmlns="http://www.w3.org/2000/svg">
-    <style>
-    .text { font: 600 16px 'Segoe UI', Ubuntu, Sans-Serif; fill: #4DD9E8 }
-    .small { font: 600 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #C9D4E0 }
-    .gray { fill: #858585 }
-    </style>
-    <rect x="0.5" y="0.5" width="575.5" height="99%" rx="4.5" fill="#0A0E14" stroke="#1C2530"/>
-    <text x="25" y="45" class="text">Something went wrong! file an issue at https://tiny.one/readme-stats</text>
-    <text data-testid="message" x="25" y="55" class="text small">
-      <tspan x="25" dy="18">Resource not accessible by integration</tspan>
-      <tspan x="25" dy="18" class="gray">OK</tspan>
-    </text>
-    </svg>
-  
+  <rect width="480" height="200" fill="#0A0E14"/>
+  <rect x="0.5" y="0.5" width="479" height="199" fill="none" stroke="#1C2530" stroke-width="1"/>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="24" y="38" font-size="15" fill="#4DD9E8" letter-spacing="0.4">GitHub Stats</text>
+    <line x1="24" y1="50" x2="456" y2="50" stroke="#1C2530" stroke-width="1"/>
+
+    <text x="24" y="76" font-size="10" fill="#E8B44D" letter-spacing="1.2">AWAITING TOKEN</text>
+    <text x="24" y="100" font-size="11" fill="#7A8B9C">The stats card needs a STATS_PAT secret</text>
+    <text x="24" y="120" font-size="11" fill="#7A8B9C">with read:user. The default GITHUB_TOKEN</text>
+    <text x="24" y="140" font-size="11" fill="#7A8B9C">cannot read repository stargazers.</text>
+
+    <text x="24" y="176" font-size="9" fill="#46586A" letter-spacing="0.6">Settings → Secrets → Actions → STATS_PAT</text>
+  </g>
+</svg>

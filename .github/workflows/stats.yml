@@ -1,19 +1,43 @@
 name: Update README cards
 
-# Regenerates the real GitHub statistics as static SVGs inside this repo.
+# Regenerates the GitHub statistics cards as static SVGs inside this repo.
 #
 # Why static SVGs instead of hotlinking a Vercel endpoint?
 #   The public instances (github-stats-extended.vercel.app etc.) are shared,
 #   rate-limited and periodically go down — which shows up as a broken image on
-#   your profile. Generating the cards here and committing them means the
-#   README always renders, and there is no third-party uptime dependency.
+#   your profile. Generating the cards here means the README always renders and
+#   there is no third-party uptime dependency.
 #
-# The trade-off is staleness, bounded by the schedule below.
+# ── REQUIRED SECRET ────────────────────────────────────────────────────────
+#   STATS_PAT — a personal access token with the `read:user` scope.
+#
+#   Without it the stats card CANNOT be built. The GITHUB_TOKEN is an App
+#   installation token, and the renderer's GraphQL query touches
+#   `user.repositories.nodes[].stargazers`, which that token cannot read:
+#
+#       FORBIDDEN  Resource not accessible by integration
+#       path: [ 'user', 'repositories', 'nodes', 0, 'stargazers' ]
+#
+#   To create one: GitHub → Settings → Developer settings → Personal access
+#   tokens → Fine-grained (or classic) → grant `read:user` (classic) or
+#   Account permissions → read: user profile / public data.
+#   Then: repo → Settings → Secrets and variables → Actions → New repository
+#   secret → name it STATS_PAT.
+#
+#   The workflow falls back to GITHUB_TOKEN, which is enough for the
+#   top-languages card (public data only) but not for the stats card.
+#   See docs/ASSETS.md for the full note.
+#
+# ── SAFETY ─────────────────────────────────────────────────────────────────
+# This workflow will never commit a card containing an error. The renderer
+# writes an SVG reading "Something went wrong" and exits 0, so a run can look
+# green while publishing a broken image. The validate step below fails the job
+# in that case and the commit step is never reached.
 
 on:
   schedule:
     - cron: "17 4 * * *"   # daily at 04:17 UTC
-  workflow_dispatch:        # or run it manually from the Actions tab
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -29,35 +53,46 @@ jobs:
       - uses: actions/checkout@v4
 
       # NOTE: `options` must be a SINGLE LINE.
-      #
-      # A YAML folded scalar (>-) joins lines with SPACES, which produces
-      #   "username=user &theme=dark"
-      # and the leading/trailing spaces get sent to the API as part of the
-      # value. That silently produced cards reading
+      # A YAML folded scalar (>-) joins lines with SPACES, so the leading and
+      # trailing spaces get sent to the API as part of the value. That silently
+      # produced cards reading
       #   "Could not resolve to a User with the login of 'user '"
       # and "Incorrect layout input". Keep every query string on one line.
-      #
-      # fail_on_error: true makes a broken card fail this run instead of
-      # writing an error SVG. Left at its default (false) the job goes green
-      # while committing a card that says "Something went wrong".
 
       - name: Generate stats card
-        uses: stats-organization/github-readme-stats-action@v1
+        uses: stats-organization/github-readme-stats-action@v2
         with:
           card: stats
           fail_on_error: true
           options: "username=${{ github.repository_owner }}&show_icons=true&theme=github_dark&hide_border=true&bg_color=0A0E14&border_color=1C2530&title_color=4DD9E8&text_color=C9D4E0&icon_color=4DD9E8&ring_color=4DD9E8&custom_title=GitHub%20Stats"
           path: assets/stats/live/stats.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.STATS_PAT || secrets.GITHUB_TOKEN }}
 
       - name: Generate languages card
-        uses: stats-organization/github-readme-stats-action@v1
+        uses: stats-organization/github-readme-stats-action@v2
         with:
           card: top-langs
           fail_on_error: true
           options: "username=${{ github.repository_owner }}&layout=compact&langs_count=8&theme=github_dark&hide_border=true&bg_color=0A0E14&border_color=1C2530&title_color=4DD9E8&text_color=C9D4E0&custom_title=Top%20Languages"
           path: assets/stats/live/languages.svg
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.STATS_PAT || secrets.GITHUB_TOKEN }}
+
+      # Version-independent backstop: the renderer can still write an error
+      # card, so assert on the output regardless of what the action reported.
+      - name: Validate generated cards
+        run: |
+          fail=0
+          for f in assets/stats/live/stats.svg assets/stats/live/languages.svg; do
+            if [ ! -s "$f" ]; then
+              echo "::error::$f is empty or missing"; fail=1; continue
+            fi
+            if grep -qE 'Something went wrong|Could not resolve|not accessible by integration' "$f"; then
+              echo "::error::$f contains an upstream error card — refusing to commit it"
+              fail=1
+            fi
+          done
+          [ "$fail" -eq 0 ] || { echo "::error::card generation failed (is STATS_PAT set?)"; exit 1; }
+          echo "Both cards generated cleanly."
 
       - name: Commit updated cards
         run: |

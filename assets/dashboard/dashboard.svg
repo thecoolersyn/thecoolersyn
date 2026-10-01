@@ -205,31 +205,32 @@
     <text x="424" y="274">12 commits today · head a3f91c4</text>
   </g>
 
-  <!-- ══════════ PANEL F · LANGUAGES ══════════ -->
+  <!-- ══════════ PANEL F · PUBLIC LANGUAGES ══════════
+       Real figures from the GitHub API, matching the generated top-languages
+       card below. These are the only non-simulated numbers in this strip;
+       every other panel is demo telemetry. -->
   <rect x="800" y="208" width="384" height="76" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
   <text x="816" y="228" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-        font-size="10" fill="#7A8B9C" letter-spacing="1.3">LANGUAGES</text>
+        font-size="10" fill="#7A8B9C" letter-spacing="1.3">PUBLIC LANGUAGES</text>
+  <text x="1168" y="228" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="9" fill="#3DDC97" letter-spacing="0.8">LIVE</text>
   <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#C9D4E0">
-    <text x="816" y="244">TS</text><text x="816" y="260">PY</text><text x="816" y="276">LUA</text>
+    <text x="816" y="244">LUA</text>
+    <text x="816" y="260">PY</text>
+    <text x="816" y="276">SH</text>
   </g>
   <g>
     <rect x="852" y="238" width="240" height="5" fill="#111823"/>
-    <rect x="852" y="238" width="240" height="5" fill="#4DD9E8" opacity="0.7">
-      <animate attributeName="width" values="168;174;162;170;168" keyTimes="0;0.3;0.6;0.85;1" dur="12s" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
-    </rect>
+    <rect x="852" y="238" width="232" height="5" fill="#4DD9E8" fill-opacity="0.7"/>
     <rect x="852" y="254" width="240" height="5" fill="#111823"/>
-    <rect x="852" y="254" width="240" height="5" fill="#3DDC97" opacity="0.6">
-      <animate attributeName="width" values="96;92;104;94;96" keyTimes="0;0.28;0.6;0.85;1" dur="9s" begin="-2s" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
-    </rect>
+    <rect x="852" y="254" width="5" height="5" fill="#7A8B9C" fill-opacity="0.5"/>
     <rect x="852" y="270" width="240" height="5" fill="#111823"/>
-    <rect x="852" y="270" width="240" height="5" fill="#7A8B9C" opacity="0.5">
-      <animate attributeName="width" values="52;58;48;54;52" keyTimes="0;0.3;0.6;0.85;1" dur="14s" begin="-4s" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
-    </rect>
+    <rect x="852" y="270" width="4" height="5" fill="#7A8B9C" fill-opacity="0.4"/>
   </g>
   <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#46586A" text-anchor="end">
-    <text x="1168" y="244">70%</text>
-    <text x="1168" y="260">40%</text>
-    <text x="1168" y="276">22%</text>
+    <text x="1168" y="244">96.7%</text>
+    <text x="1168" y="260">2.0%</text>
+    <text x="1168" y="276">1.3%</text>
   </g>
 
   <!-- footer strip -->
