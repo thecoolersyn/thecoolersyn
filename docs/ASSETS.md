@@ -63,7 +63,7 @@ assets/
         └── languages.svg
 ```
 
-Total: ~145KB for 13 assets. Comfortably light — the whole README is
+Total: ~185KB for 12 assets. Comfortably light — the whole README is
 text plus these images.
 
 ---
@@ -95,7 +95,7 @@ Every invented number carries a visible honesty marker, by design:
 | Asset | Marker |
 |---|---|
 | `dashboard.svg` | footer: `DEMO · simulated telemetry — not live system data` |
-| `commit-graph.svg` | `SIM` chip + `simulated activity pattern · not live data` |
+| `commit-graph.svg` | none needed — it is **real** data. Carries a `LIVE` chip, asserted by CI. |
 | `markets.svg` | header `SIMULATED` + `not investment data · not financial advice` |
 | `orderflow.svg` | `SIMULATED` + `synthetic feed · not market data` |
 | `systems.svg` | `SIM` chip + `simulated runtime metrics · not a live trace` |
@@ -112,16 +112,21 @@ if you add a "real" number there, it is a false financial claim.
 **Most assets: nothing to do.** They are static files; they animate in the
 browser forever. Edit, save, push.
 
-**`commit-graph.svg` is generated.** Do not hand-edit it:
+**`commit-graph.svg` is generated from real GitHub data.** Never hand-edit it.
 
 ```bash
-python3 scripts/gen_commit_graph.py                 # regenerate with the default seed
-python3 scripts/gen_commit_graph.py --seed 99       # different pattern
+GITHUB_TOKEN=... python3 scripts/gen_commit_graph.py --login YOUR_HANDLE
+python3 scripts/gen_commit_graph.py --from-json payload.json   # offline, for testing
 ```
 
-`--seed` changes the whole pattern. Use it to reshuffle the activity grid;
-everything else (palette, legend, labels, honesty marker) is defined at the
-top of the script.
+It reads the public contribution calendar over the GraphQL API. There is **no
+synthetic fallback**: if the fetch fails the script exits non-zero and leaves
+the committed SVG untouched, so a failed run can never replace real data with a
+fabricated pattern. Output is deterministic for a given payload, so the weekly
+workflow only commits when the data actually changed.
+
+Refresh it on demand: **repo → Actions → Update contribution graph → Run workflow**.
+It also runs every Monday at 05:43 UTC.
 
 ### Refreshing the real GitHub statistics
 

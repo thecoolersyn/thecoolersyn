@@ -47,7 +47,7 @@
 
 <br>
 
-<img src="assets/dashboard/commit-graph.svg" width="100%" alt="Contribution activity heatmap for the last 12 months (simulated pattern, not live data)" />
+<img src="assets/dashboard/commit-graph.svg" width="100%" alt="Contribution activity heatmap for the last 12 months, generated from real public GitHub contribution data and refreshed weekly" />
 
 </div>
 
@@ -249,9 +249,10 @@
 
 <p>
   <sub>
-    The contribution graph above is a simulated pattern. The two cards here are generated from
-    real public GitHub data by a scheduled workflow in this repo. Everything on this page is
-    read-only — nothing here is financial or performance advice.
+    The contribution graph is real data from the GitHub API, regenerated weekly.
+    The cards here are generated from public GitHub data by a scheduled workflow
+    in this repo. Everything on this page is read-only — nothing here is
+    financial or performance advice.
   </sub>
 </p>
 

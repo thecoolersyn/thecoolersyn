@@ -124,7 +124,6 @@ These are **intentionally fake** and must never be presented as real:
 | Asset | What is invented | Marker shown |
 |---|---|---|
 | `dashboard.svg` | CPU/memory/disk values, network traffic, uptime, commit dots | `DEMO · simulated telemetry` footer |
-| `commit-graph.svg` | the entire activity pattern | `SIM` chip + `not live data` |
 | `markets.svg` | every price level, candle, spread, depth figure | `SIMULATED` header + `not investment data · not financial advice` |
 | `orderflow.svg` | the pipeline | `SIMULATED` + `synthetic feed · not market data` |
 | `systems.svg` | topology, context-window split, token rate, latency | `SIM` + `simulated runtime metrics · not a live trace` |
@@ -132,6 +131,11 @@ These are **intentionally fake** and must never be presented as real:
 
 You may restyle these. Do not remove the markers, and do not replace the market
 figures with anything that looks like a real balance, return or trade.
+
+**Exception — `commit-graph.svg` is real.** It is generated from the GitHub
+GraphQL API by `scripts/gen_commit_graph.py` and carries a `LIVE` chip that CI
+asserts. Do not add a "simulated" marker to it, and do not make the generator
+fall back to synthetic data.
 
 The one thing that **is** real in the README: the two cards in
 `assets/stats/live/`, generated from public GitHub data.

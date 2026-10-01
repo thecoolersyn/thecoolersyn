@@ -28,22 +28,25 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # NOTE: `options` must be a SINGLE LINE.
+      #
+      # A YAML folded scalar (>-) joins lines with SPACES, which produces
+      #   "username=user &theme=dark"
+      # and the leading/trailing spaces get sent to the API as part of the
+      # value. That silently produced cards reading
+      #   "Could not resolve to a User with the login of 'user '"
+      # and "Incorrect layout input". Keep every query string on one line.
+      #
+      # fail_on_error: true makes a broken card fail this run instead of
+      # writing an error SVG. Left at its default (false) the job goes green
+      # while committing a card that says "Something went wrong".
+
       - name: Generate stats card
         uses: stats-organization/github-readme-stats-action@v1
         with:
           card: stats
-          options: >-
-            username=${{ github.repository_owner }}
-            &show_icons=true
-            &theme=github_dark
-            &hide_border=true
-            &bg_color=0A0E14
-            &border_color=1C2530
-            &title_color=4DD9E8
-            &text_color=C9D4E0
-            &icon_color=4DD9E8
-            &ring_color=4DD9E8
-            &custom_title=GitHub%20Stats
+          fail_on_error: true
+          options: "username=${{ github.repository_owner }}&show_icons=true&theme=github_dark&hide_border=true&bg_color=0A0E14&border_color=1C2530&title_color=4DD9E8&text_color=C9D4E0&icon_color=4DD9E8&ring_color=4DD9E8&custom_title=GitHub%20Stats"
           path: assets/stats/live/stats.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -51,16 +54,8 @@ jobs:
         uses: stats-organization/github-readme-stats-action@v1
         with:
           card: top-langs
-          options: >-
-            username=${{ github.repository_owner }}
-            &layout=compact
-            &langs_count=8
-            &theme=github_dark
-            &hide_border=true
-            &bg_color=0A0E14
-            &border_color=1C2530
-            &title_color=4DD9E8
-            &text_color=C9D4E0
+          fail_on_error: true
+          options: "username=${{ github.repository_owner }}&layout=compact&langs_count=8&theme=github_dark&hide_border=true&bg_color=0A0E14&border_color=1C2530&title_color=4DD9E8&text_color=C9D4E0&custom_title=Top%20Languages"
           path: assets/stats/live/languages.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 

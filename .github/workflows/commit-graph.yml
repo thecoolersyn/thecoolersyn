@@ -1,0 +1,56 @@
+name: Update contribution graph
+
+# Regenerates assets/dashboard/commit-graph.svg from REAL public GitHub
+# contribution data via the GraphQL API.
+#
+# Design notes:
+#  * The generator has no synthetic fallback. If the fetch fails the script
+#    exits non-zero and the committed SVG is left untouched, so a failed run can
+#    never replace real data with a fabricated pattern.
+#  * Output is deterministic for a given payload, so the commit below only
+#    fires when the underlying data actually changed — no empty weekly commits.
+#  * Uses the built-in GITHUB_TOKEN (read:user is implicit for public data).
+#    No PAT is required and no secret is stored in this repo.
+
+on:
+  schedule:
+    - cron: "43 5 * * 1"   # Mondays at 05:43 UTC
+  workflow_dispatch:        # or run it manually from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: contribution-graph
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate graph from real contribution data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_ACTOR: ${{ github.repository_owner }}
+        run: python3 scripts/gen_commit_graph.py --login "$GITHUB_ACTOR"
+
+      - name: Validate the rendered SVG
+        run: |
+          python3 -c "import xml.dom.minidom,sys; xml.dom.minidom.parse(sys.argv[1])" \
+            assets/dashboard/commit-graph.svg
+          grep -q 'LIVE' assets/dashboard/commit-graph.svg \
+            || { echo "::error::graph is missing its LIVE provenance marker"; exit 1; }
+
+      - name: Commit only if the data changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/dashboard/commit-graph.svg
+          if git diff --staged --quiet; then
+            echo "Contribution data unchanged — nothing to commit."
+          else
+            git commit -m "chore: refresh contribution graph"
+            git push
+          fi
