@@ -26,7 +26,7 @@ Two consequences worth internalising:
 
 1. **You cannot animate text content.** To change a number, stack several
    `<text>` elements and toggle their `opacity` with `calcMode="discrete"`.
-   See `assets/garage/tachometer.svg` for the working pattern.
+   See `assets/systems/agent-loop.svg` for the working pattern.
 2. **A `clipPath` rect is positioned in the element's own coordinates.** To
    make a line "type" itself, animate the clip rect's `width` from 0. The rect
    must sit at the text's `x`/`y`, not at `0,0` — this is the single most
@@ -50,9 +50,10 @@ assets/
 │   ├── markets.svg                1200×340   candlesticks + quant terminal
 │   └── orderflow.svg              1200×180   pipeline / order flow
 ├── projects/projects.svg          1200×340   featured systems panel
-├── garage/
-│   ├── garage.svg                 1200×320   blueprint + telemetry
-│   └── tachometer.svg              420×270   RPM gauge
+├── systems/
+│   ├── systems.svg                1200×320   runtime topology + agent telemetry
+│   └── agent-loop.svg              420×270   observe → plan → act → verify
+├── about/environment.svg          1200×300   OS hierarchy by current use
 └── stats/
     ├── footer.svg                 1200×200   closing banner
     ├── hud-frame.svg              1200×48    section separator
@@ -97,8 +98,8 @@ Every invented number carries a visible honesty marker, by design:
 | `commit-graph.svg` | `SIM` chip + `simulated activity pattern · not live data` |
 | `markets.svg` | header `SIMULATED` + `not investment data · not financial advice` |
 | `orderflow.svg` | `SIMULATED` + `synthetic feed · not market data` |
-| `garage.svg` | footer: `hobby · schematic reference · simulated telemetry` |
-| `tachometer.svg` | `SIM` chip + `simulated · no real instrument data` |
+| `systems.svg` | `SIM` chip + `simulated runtime metrics · not a live trace` |
+| `agent-loop.svg` | `illustrative` tag; loop budget is a concept, not a measurement |
 
 These are not decoration. Keep them when editing. The finance panel
 specifically must never imply returns, P&L, portfolio value or performance —

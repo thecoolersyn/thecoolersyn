@@ -12,7 +12,7 @@
 <div align="center">
 
 <!-- ══════════════════ HERO ══════════════════ -->
-<img src="assets/hero/hero.svg" width="100%" alt="Terminal-style hero banner: software, technology, finance and motorcycles" />
+<img src="assets/hero/hero.svg" width="100%" alt="Terminal-style hero banner: software, AI, systems and markets" />
 
 <br>
 
@@ -20,8 +20,8 @@
 <h3>Building software, experimenting with AI, and breaking things until they work.</h3>
 
 <p>
-  Software engineering &amp; technology · AI and developer tooling · web platforms ·
-  finance &amp; markets · motorcycles · general computer science
+  Software engineering &amp; programming · AI and developer tooling · systems &amp; automation ·
+  web development · finance &amp; markets
 </p>
 
 <p align="center">
@@ -61,6 +61,68 @@
 <br>
 
 <img src="assets/stack/typing.svg" width="640" alt="Animated code typing animation in a terminal" />
+
+</div>
+
+<br>
+
+<!-- ══════════════════ ABOUT ══════════════════ -->
+<div align="center">
+
+<h3>About</h3>
+
+<p>
+  Software engineering is the through-line: building things, breaking them,
+  and understanding why. Everything else is a different angle on the same
+  curiosity about how systems behave.
+</p>
+
+</div>
+
+<!--
+  NOTE: markdown is NOT processed inside raw HTML blocks on GitHub. This table
+  must be written in pure HTML (<strong>, <ul>, <li>) — using ** or - here
+  renders as literal asterisks.
+-->
+<table>
+  <tr>
+    <td valign="top" width="50%">
+
+<strong>▸ Things I build</strong>
+<ul>
+<li><strong>Applications &amp; services</strong> — typed, testable, boring in the right places</li>
+<li><strong>Developer tooling</strong> — CLIs, extensions, small tools that remove a repetitive step</li>
+<li><strong>Git &amp; automation</strong> — branching, reviews, and the pipelines and bots that run unattended</li>
+<li><strong>Web development</strong> — React, Next.js, component systems, API design</li>
+<li><strong>AI-assisted workflows</strong> — coding agents, MCP tool servers, evaluation harnesses</li>
+<li><strong>Luau tooling</strong> — modules and platform tooling for Roblox</li>
+</ul>
+
+    </td>
+    <td valign="top" width="50%">
+
+<strong>▸ Things I explore</strong>
+<ul>
+<li><strong>Systems &amp; operating systems</strong> — what actually happens underneath</li>
+<li><strong>Linux, networking &amp; infrastructure</strong> — distributions, dual boot, DNS, TCP, services</li>
+<li><strong>Reverse engineering</strong> — reading binaries and protocols to see how they work</li>
+<li><strong>Markets &amp; financial technology</strong> — market structure, data, quantitative thinking</li>
+<li><strong>Open source ecosystems</strong> — reading code, packaging, and how projects are maintained</li>
+</ul>
+
+    </td>
+  </tr>
+</table>
+
+<div align="center">
+
+<p>
+  <sub>Outside the code: badminton, and an unreasonable amount of time in terminals.</sub>
+</p>
+
+<br>
+
+<img src="assets/about/environment.svg" width="100%" alt="Computing environment ordered by current use: macOS as the primary daily driver, Fedora as the current Linux distribution used through dual boot, Windows kept as an additional operating system, and Linux Mint and Arch previously used. Bar length shows relative weight of use." />
 
 </div>
 
@@ -111,25 +173,26 @@
 
 <br>
 
-<!-- ══════════════════ GARAGE ══════════════════ -->
+<!-- ══════════════════ SYSTEMS ══════════════════ -->
 <div align="center">
 
-<h3>Garage &middot; Machines</h3>
+<h3>Systems &amp; Runtime</h3>
 
 <p>
-  The other workstation. Motorcycles are a hobby — CAD drawings, telemetry and
-  tachometers appeal for the same reason compilers do.
+  Most of what I build ends up behind an interface of some kind. Orchestration,
+  tool calls, retrieval, queues — the unglamorous layer that decides whether the
+  clever part actually works.
 </p>
 
-<img src="assets/garage/garage.svg" width="100%" alt="Technical blueprint of a motorcycle with dimension lines and callouts, alongside simulated engine telemetry readouts" />
+<img src="assets/systems/systems.svg" width="100%" alt="Systems diagram showing a request path from client through gateway to an agent orchestrator that fans out to MCP tool servers, the model and a vector store, alongside a simulated agent runtime panel showing context window composition and latency" />
 
 <br>
 
-<img src="assets/garage/tachometer.svg" width="420" alt="Animated tachometer gauge with a sweeping needle and an RPM readout" />
+<img src="assets/systems/agent-loop.svg" width="420" alt="Circular agent loop diagram with four stages — observe, plan, act, verify — and a token travelling the cycle" />
 
 <p>
   <sub>
-    Hobby project. Schematic reference, simulated telemetry — no real instrument data.
+    Illustrative architecture and simulated runtime metrics — not a live trace.
   </sub>
 </p>
 

@@ -39,9 +39,11 @@ connect row. Run `grep -c '⟦USERNAME⟧' README.md` to confirm you hit them al
 | Placeholder | Location | Current text |
 |---|---|---|
 | Headline | `README.md`, under the hero | "Building software, experimenting with AI, and breaking things until they work." |
-| Interest line | directly below it | software · AI · web · finance · motorcycles · CS |
+| Interest line | directly below it | software engineering · AI · systems · web · markets |
 | Code × Markets blurb | `README.md` | "systematic thinking applied to price, volume and risk" |
-| Garage blurb | `README.md` | "CAD drawings, telemetry and tachometers appeal for the same reason compilers do." |
+| About blurb | `README.md` | "Software engineering is the through-line…"
+| Systems blurb | `README.md` | "Most of what I build ends up behind an interface of some kind." |
+| Build/explore/outside lists | `README.md` | the two-column table under `About` — edit the bullets directly |
 
 ## 4. Featured projects — `assets/projects/projects.svg`
 
@@ -125,8 +127,8 @@ These are **intentionally fake** and must never be presented as real:
 | `commit-graph.svg` | the entire activity pattern | `SIM` chip + `not live data` |
 | `markets.svg` | every price level, candle, spread, depth figure | `SIMULATED` header + `not investment data · not financial advice` |
 | `orderflow.svg` | the pipeline | `SIMULATED` + `synthetic feed · not market data` |
-| `garage.svg` | bore/stroke/ratio/mass, pressure trace, load | `hobby · schematic reference · simulated telemetry` |
-| `tachometer.svg` | the RPM sweep and readout | `SIM` + `no real instrument data` |
+| `systems.svg` | topology, context-window split, token rate, latency | `SIM` + `simulated runtime metrics · not a live trace` |
+| `agent-loop.svg` | the 12-step budget and cycle timing | `illustrative` tag |
 
 You may restyle these. Do not remove the markers, and do not replace the market
 figures with anything that looks like a real balance, return or trade.

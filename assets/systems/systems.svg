@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-labelledby="t d">
+  <title id="t">Runtime systems — architecture topology and AI agent telemetry</title>
+  <desc id="d">A systems diagram showing a request path from client through gateway to an agent orchestrator, which fans out to MCP tool servers, the model and a vector store. Beside it, a simulated agent runtime panel showing context window composition, token rate, tool calls and latency. All figures are simulated.</desc>
+
+  <defs>
+    <pattern id="bg-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0H0V20" fill="none" stroke="#1C2530" stroke-width="1" opacity="0.45"/>
+    </pattern>
+    <pattern id="bg-grid-major" width="100" height="100" patternUnits="userSpaceOnUse">
+      <path d="M100 0H0V100" fill="none" stroke="#2A3644" stroke-width="1" opacity="0.45"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="320" fill="#05070A"/>
+
+  <!-- ══════════ TITLE STRIP ══════════ -->
+  <rect x="16" y="16" width="1168" height="34" rx="2" fill="#111823" stroke="#1C2530" stroke-width="1"/>
+  <g stroke="#2A3644" stroke-width="1" fill="none" opacity="0.8">
+    <path d="M16 28V16h12"/><path d="M1172 16h12v12"/>
+  </g>
+  <text x="32" y="38" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="11" fill="#C9D4E0" letter-spacing="1.4">RUNTIME TOPOLOGY</text>
+  <text x="212" y="38" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="10" fill="#7A8B9C" letter-spacing="1.2">REQUEST PATH · TOOL FAN-OUT</text>
+  <text x="1168" y="38" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="9" fill="#46586A" letter-spacing="0.8">region eu-west · n=6 replicas · 0x7f3a9c21</text>
+
+  <!-- ══════════ TOPOLOGY VIEWPORT ══════════ -->
+  <rect x="16" y="66" width="760" height="238" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
+  <rect x="16" y="66" width="760" height="238" fill="url(#bg-grid)"/>
+  <rect x="16" y="66" width="760" height="238" fill="url(#bg-grid-major)" opacity="0.55"/>
+
+  <!-- ── connectors (drawn first so nodes sit on top) ── -->
+  <g stroke="#1C2530" stroke-width="1" fill="none">
+    <!-- trunk: client → gateway → orchestrator -->
+    <path d="M150 152 H186"/>
+    <path d="M286 152 H326"/>
+    <!-- queue feeds the gateway from below -->
+    <path d="M236 218 V184"/>
+    <!-- orchestrator fans out to the three backends -->
+    <path d="M396 184 V212"/>
+    <path d="M466 184 V196 H506 V212"/>
+    <path d="M466 184 H636 V212"/>
+    <!-- backends return to the orchestrator (lower bus) -->
+    <path d="M380 246 V268 H636 V246"/>
+    <path d="M506 246 V268"/>
+  </g>
+  <!-- junction dots -->
+  <g fill="#2A3644">
+    <rect x="393" y="181" width="6" height="6" rx="1"/>
+    <rect x="463" y="181" width="6" height="6" rx="1"/>
+    <rect x="233" y="196" width="6" height="6" rx="1"/>
+  </g>
+
+  <!-- ── animated packets on the trunk ── -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#4DD9E8" opacity="0.9">
+    <text x="0" y="156">▪</text>
+    <animateTransform attributeName="transform" type="translate" values="152,0;184,0" dur="2.8s" begin="-0.3s" calcMode="spline" keySplines="0.4 0 0.6 1" repeatCount="indefinite"/>
+    <text x="0" y="156">▪</text>
+    <animateTransform attributeName="transform" type="translate" values="288,0;324,0" dur="3.4s" begin="-1.5s" calcMode="spline" keySplines="0.4 0 0.6 1" repeatCount="indefinite"/>
+  </g>
+  <!-- packet descending into a backend -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#9B7BFF" opacity="0.8">
+    <text x="0" y="186">▪</text>
+    <animateTransform attributeName="transform" type="translate" values="396,0;396,26" dur="4.2s" begin="-0.8s" calcMode="spline" keySplines="0.4 0 0.6 1" repeatCount="indefinite"/>
+  </g>
+  <!-- return traffic on the lower bus -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#3DDC97" opacity="0.7">
+    <text x="0" y="272">▪</text>
+    <animateTransform attributeName="transform" type="translate" values="636,0;380,0" dur="5.6s" begin="-2.2s" calcMode="spline" keySplines="0.4 0 0.6 1" repeatCount="indefinite"/>
+  </g>
+
+  <!-- ══════════ NODES ══════════
+       node(nx, ny, w, h, label, accent)  — rect + label, hairline border
+  -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" letter-spacing="0.7">
+
+    <!-- CLIENT -->
+    <g>
+      <rect x="60" y="136" width="90" height="32" rx="2" fill="#0A0E14" stroke="#2A3644" stroke-width="1"/>
+      <rect x="60" y="136" width="3" height="32" fill="#7A8B9C" fill-opacity="0.7"/>
+      <text x="105" y="156" text-anchor="middle" fill="#C9D4E0">CLIENT</text>
+    </g>
+
+    <!-- GATEWAY -->
+    <g>
+      <rect x="186" y="136" width="100" height="32" rx="2" fill="#0A0E14" stroke="#2A3644" stroke-width="1"/>
+      <rect x="186" y="136" width="3" height="32" fill="#7A8B9C" fill-opacity="0.7"/>
+      <text x="236" y="156" text-anchor="middle" fill="#C9D4E0">GATEWAY</text>
+    </g>
+
+    <!-- ORCHESTRATOR (the important one) -->
+    <g>
+      <rect x="326" y="136" width="140" height="48" rx="2" fill="#0A0E14" stroke="#4DD9E8" stroke-width="1"/>
+      <rect x="326" y="136" width="3" height="48" fill="#4DD9E8"/>
+      <text x="396" y="156" text-anchor="middle" fill="#C9D4E0">AGENT ORCHESTRATOR</text>
+      <text x="396" y="172" text-anchor="middle" fill="#46586A">plan · route · retry</text>
+    </g>
+
+    <!-- QUEUE -->
+    <g>
+      <rect x="186" y="218" width="100" height="28" rx="2" fill="#0A0E14" stroke="#2A3644" stroke-width="1"/>
+      <text x="236" y="236" text-anchor="middle" fill="#7A8B9C">TASK QUEUE</text>
+    </g>
+
+    <!-- MCP TOOLS -->
+    <g>
+      <rect x="330" y="212" width="100" height="34" rx="2" fill="#0A0E14" stroke="#9B7BFF" stroke-width="1"/>
+      <text x="380" y="228" text-anchor="middle" fill="#C9D4E0">MCP TOOLS</text>
+      <text x="380" y="241" text-anchor="middle" fill="#46586A">3 servers</text>
+    </g>
+
+    <!-- MODEL -->
+    <g>
+      <rect x="456" y="212" width="100" height="34" rx="2" fill="#0A0E14" stroke="#4DD9E8" stroke-width="1"/>
+      <text x="506" y="228" text-anchor="middle" fill="#C9D4E0">MODEL</text>
+      <text x="506" y="241" text-anchor="middle" fill="#46586A">infer</text>
+    </g>
+
+    <!-- STORE -->
+    <g>
+      <rect x="586" y="212" width="100" height="34" rx="2" fill="#0A0E14" stroke="#2A3644" stroke-width="1"/>
+      <text x="636" y="228" text-anchor="middle" fill="#C9D4E0">VECTOR STORE</text>
+      <text x="636" y="241" text-anchor="middle" fill="#46586A">retrieve</text>
+    </g>
+  </g>
+
+  <!-- ── small edge labels ── -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="8.5" fill="#46586A" letter-spacing="0.6">
+    <text x="168" y="130" text-anchor="middle">POST /v1/run</text>
+    <text x="306" y="130" text-anchor="middle">stream</text>
+    <text x="212" y="210" text-anchor="middle">enqueue</text>
+    <text x="508" y="290" text-anchor="middle">◀── results, idempotent</text>
+  </g>
+
+  <text x="40" y="90" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="9" fill="#46586A" letter-spacing="0.7">fig. 01 · n=5 hops · idempotency keys on writes</text>
+
+  <!-- ══════════ TELEMETRY COLUMN ══════════ -->
+  <rect x="792" y="66" width="392" height="238" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
+
+  <text x="808" y="86" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="10" fill="#9B7BFF" letter-spacing="1.3">AGENT RUNTIME</text>
+  <text x="1168" y="86" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="9" fill="#E8B44D" letter-spacing="0.9">SIM</text>
+  <line x1="808" y1="94" x2="1168" y2="94" stroke="#1C2530" stroke-width="1"/>
+
+  <!-- context window composition -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9">
+    <text x="808" y="112" fill="#7A8B9C" letter-spacing="1.1">CONTEXT WINDOW</text>
+    <text x="1168" y="112" text-anchor="end" fill="#7A8B9C">128k</text>
+  </g>
+  <g>
+    <rect x="808" y="118" width="360" height="12" fill="#111823"/>
+    <rect x="808" y="118" width="38" height="12" fill="#7A8B9C" fill-opacity="0.4"/>
+    <rect x="846" y="118" width="96" height="12" fill="#9B7BFF" fill-opacity="0.5">
+      <animate attributeName="width" values="96;104;88;100;96" keyTimes="0;0.28;0.58;0.82;1" dur="12s"
+               calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect>
+    <rect x="942" y="118" width="132" height="12" fill="#4DD9E8" fill-opacity="0.4">
+      <animate attributeName="width" values="132;140;124;136;132" keyTimes="0;0.3;0.6;0.85;1" dur="12s" begin="-3s"
+               calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect>
+    <rect x="1074" y="118" width="94" height="12" fill="#3DDC97" fill-opacity="0.4">
+      <animate attributeName="width" values="94;88;100;92;94" keyTimes="0;0.3;0.6;0.85;1" dur="12s" begin="-6s"
+               calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="8.5" fill="#46586A" letter-spacing="0.5">
+    <text x="808" y="144">system</text>
+    <text x="880" y="144">tools</text>
+    <text x="996" y="144">history</text>
+    <text x="1120" y="144">output</text>
+  </g>
+
+  <line x1="808" y1="154" x2="1168" y2="154" stroke="#1C2530" stroke-width="1"/>
+
+  <!-- runtime metrics -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10">
+    <text x="808" y="174" fill="#46586A">tokens/s</text>
+    <text x="1168" y="174" text-anchor="end" fill="#C9D4E0">1,284</text>
+    <text x="808" y="194" fill="#46586A">tool calls</text>
+    <text x="1168" y="194" text-anchor="end" fill="#C9D4E0">7</text>
+    <text x="808" y="214" fill="#46586A">p50 latency</text>
+    <text x="1168" y="214" text-anchor="end" fill="#3DDC97">0.42s</text>
+    <text x="808" y="234" fill="#46586A">cache hit</text>
+    <text x="1168" y="234" text-anchor="end" fill="#C9D4E0">0.78</text>
+  </g>
+  <line x1="808" y1="246" x2="1168" y2="246" stroke="#1C2530" stroke-width="1"/>
+
+  <!-- loop budget meter with an amber ceiling -->
+  <text x="808" y="266" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="9" fill="#46586A" letter-spacing="0.8">STEP BUDGET</text>
+  <rect x="892" y="258" width="240" height="8" fill="#111823"/>
+  <rect x="1116" y="258" width="16" height="8" fill="#E8B44D" fill-opacity="0.3"/>
+  <rect x="892" y="258" width="240" height="8" fill="#4DD9E8" fill-opacity="0.7">
+    <animate attributeName="width" values="150;186;126;204;164;150" keyTimes="0;0.2;0.4;0.6;0.8;1" dur="11s"
+             calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1"
+             repeatCount="indefinite"/>
+  </rect>
+  <text x="1168" y="292" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="9" fill="#46586A" letter-spacing="0.6">simulated runtime metrics · not a live trace</text>
+</svg>

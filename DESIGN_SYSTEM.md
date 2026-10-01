@@ -30,7 +30,7 @@ Use these EXACT values. No other hues.
 | `text-faint` | `#46586A` | Ticks, disabled, watermark |
 | `cyan` | `#4DD9E8` | PRIMARY accent — terminals, highlights, active |
 | `green` | `#3DDC97` | Success, git activity, "OK" states |
-| `amber` | `#E8B44D` | Warnings, RPM redline, "caution" |
+| `amber` | `#E8B44D` | Warnings, caution zones, degraded states |
 | `violet` | `#9B7BFF` | Sparing use — AI, secondary data series |
 | `red` | `#FF5C7A` | Errors, down candles, "ERR" |
 
@@ -75,12 +75,12 @@ Anything showing invented numbers MUST carry a visible marker. This is non-negot
 
 Sprinkle 1–3 per asset, tiny, `fill="#46586A"` or dim cyan, `9–10px`:
 
-- `HTTP 200` · `HTTP 418` · `ETag: "a3f91c4"` · `X-Powered-By: caffeine`
+- `HTTP 200` · `HTTP 418` · `ETag: "a3f91c4"` · `X-Powered-By: caffeine` · `nproc`
 - `sha a3f91c4` · `0x7f3a9c21` · `pid 0x1f4` · `errno 0`
 - `$ git push --force-with-lease` · `~ $ make -j$(nproc)`
 - `curl -sS https://api.github.com/users/$USER/rate_limit`
 - `Δt=0.031s` · `λ=0.0021` · `Σ=1024` · `O(1) amortized` · `n=1024 iterations`
-- `BUILD ● OK` · `DEPLOY ○ queued` · `DEBUG ✕` · `UPTIME 41d 07:13:52`
+- `BUILD ● OK` · `DEPLOY ○ queued` · `DEBUG ✕` · `UPTIME 41d 07:13:52` · `n=5 hops`
 - `nanoseconds since epoch` · `errno 0` · `stddev=0.004`
 Never more than 3 per asset, never in a position that hurts the layout.
 
