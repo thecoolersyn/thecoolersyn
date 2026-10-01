@@ -1,0 +1,77 @@
+name: Update README cards
+
+# Regenerates the real GitHub statistics as static SVGs inside this repo.
+#
+# Why static SVGs instead of hotlinking a Vercel endpoint?
+#   The public instances (github-stats-extended.vercel.app etc.) are shared,
+#   rate-limited and periodically go down — which shows up as a broken image on
+#   your profile. Generating the cards here and committing them means the
+#   README always renders, and there is no third-party uptime dependency.
+#
+# The trade-off is staleness, bounded by the schedule below.
+
+on:
+  schedule:
+    - cron: "17 4 * * *"   # daily at 04:17 UTC
+  workflow_dispatch:        # or run it manually from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stats-cards
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate stats card
+        uses: stats-organization/github-readme-stats-action@v1
+        with:
+          card: stats
+          options: >-
+            username=${{ github.repository_owner }}
+            &show_icons=true
+            &theme=github_dark
+            &hide_border=true
+            &bg_color=0A0E14
+            &border_color=1C2530
+            &title_color=4DD9E8
+            &text_color=C9D4E0
+            &icon_color=4DD9E8
+            &ring_color=4DD9E8
+            &custom_title=GitHub%20Stats
+          path: assets/stats/live/stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate languages card
+        uses: stats-organization/github-readme-stats-action@v1
+        with:
+          card: top-langs
+          options: >-
+            username=${{ github.repository_owner }}
+            &layout=compact
+            &langs_count=8
+            &theme=github_dark
+            &hide_border=true
+            &bg_color=0A0E14
+            &border_color=1C2530
+            &title_color=4DD9E8
+            &text_color=C9D4E0
+          path: assets/stats/live/languages.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit updated cards
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/stats/live
+          if git diff --staged --quiet; then
+            echo "Cards unchanged — nothing to commit."
+          else
+            git commit -m "chore: refresh stats cards"
+            git push
+          fi

@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="180" viewBox="0 0 1200 180" role="img" aria-labelledby="t d">
+  <title id="t">Order flow — simulated data ingestion to aggregation</title>
+  <desc id="d">A quiet horizontal panel showing small data packets travelling from an ingest node along a bus into a compact output bar chart. Synthetic demonstration of a market-data pipeline, not real market data.</desc>
+
+  <rect width="1200" height="180" fill="#05070A"/>
+
+  <rect x="16" y="16" width="1168" height="148" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
+  <g stroke="#2A3644" stroke-width="1" fill="none" opacity="0.8">
+    <path d="M16 28V16h12"/><path d="M1172 16h12v12"/><path d="M16 152v12h12"/><path d="M1172 164h-12v-12"/>
+  </g>
+
+  <!-- label block -->
+  <text x="40" y="46" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="11" fill="#C9D4E0" letter-spacing="1.4">ORDER FLOW</text>
+  <text x="40" y="64" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="9" fill="#E8B44D" letter-spacing="1.1">SIMULATED</text>
+  <line x1="40" y1="76" x2="232" y2="76" stroke="#1C2530" stroke-width="1"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#46586A" letter-spacing="0.6">
+    <text x="40" y="94">ingest</text>
+    <text x="40" y="110">→ normalise</text>
+    <text x="40" y="126">→ aggregate</text>
+    <text x="40" y="150">bus 0 · epoch 0x7f</text>
+  </g>
+
+  <!-- ingest node -->
+  <rect x="252" y="76" width="12" height="28" rx="1" fill="#111823" stroke="#2A3644" stroke-width="1"/>
+  <rect x="252" y="76" width="12" height="28" rx="1" fill="#4DD9E8" fill-opacity="0.18">
+    <animate attributeName="fill-opacity" values="0.18;0.5;0.18" dur="5s" calcMode="spline" keySplines="0.4 0 0.2 1" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- the bus -->
+  <line x1="264" y1="90" x2="700" y2="90" stroke="#1C2530" stroke-width="1"/>
+  <!-- reference baseline for the bus -->
+  <line x1="264" y1="104" x2="700" y2="104" stroke="#1C2530" stroke-width="1" opacity="0.5"/>
+
+  <!-- packets travelling left-to-right, staggered, varied speed -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10">
+    <text x="0" y="94" fill="#4DD9E8" opacity="0.9">▪</text>
+    <animateTransform attributeName="transform" type="translate" values="270,0;696,0" dur="6.4s" begin="-0.4s" calcMode="spline" keySplines="0.4 0 0.6 1" repeatCount="indefinite"/>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10">
+    <text x="0" y="94" fill="#4DD9E8" opacity="0.7">▪</text>
+    <animateTransform attributeName="transform" type="translate" values="270,0;696,0" dur="6.4s" begin="-2.7s" calcMode="spline" keySplines="0.4 0 0.6 1" repeatCount="indefinite"/>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10">
+    <text x="0" y="94" fill="#3DDC97" opacity="0.8">▪</text>
+    <animateTransform attributeName="transform" type="translate" values="270,0;696,0" dur="8.1s" begin="-1.2s" calcMode="spline" keySplines="0.4 0 0.6 1" repeatCount="indefinite"/>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10">
+    <text x="0" y="94" fill="#7A8B9C" opacity="0.7">▪</text>
+    <animateTransform attributeName="transform" type="translate" values="270,0;696,0" dur="7.2s" begin="-4.3s" calcMode="spline" keySplines="0.4 0 0.6 1" repeatCount="indefinite"/>
+  </g>
+
+  <!-- aggregate node -->
+  <rect x="700" y="72" width="16" height="36" rx="1" fill="#111823" stroke="#2A3644" stroke-width="1"/>
+  <rect x="700" y="72" width="16" height="36" rx="1" fill="#4DD9E8" fill-opacity="0.14">
+    <animate attributeName="fill-opacity" values="0.14;0.34;0.14" dur="5s" begin="-2.5s" calcMode="spline" keySplines="0.4 0 0.2 1" repeatCount="indefinite"/>
+  </rect>
+  <line x1="716" y1="90" x2="760" y2="90" stroke="#1C2530" stroke-width="1"/>
+
+  <!-- output bar chart, baseline at y=140 -->
+  <line x1="760" y1="140" x2="1160" y2="140" stroke="#1C2530" stroke-width="1"/>
+  <g fill="#4DD9E8">
+    <rect x="768"  y="118" width="18" height="22" fill-opacity="0.45"/>
+    <rect x="798"  y="106" width="18" height="34" fill-opacity="0.45">
+      <animate attributeName="y" values="106;100;108;102;106" keyTimes="0;0.28;0.55;0.8;1" dur="10s" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect>
+    <rect x="828"  y="112" width="18" height="28" fill-opacity="0.45"/>
+    <rect x="858"  y="98"  width="18" height="42" fill-opacity="0.45">
+      <animate attributeName="y" values="98;92;100;96;98" keyTimes="0;0.3;0.6;0.85;1" dur="12s" begin="-3s" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect>
+    <rect x="888"  y="116" width="18" height="24" fill-opacity="0.45"/>
+    <rect x="918"  y="104" width="18" height="36" fill-opacity="0.45">
+      <animate attributeName="y" values="104;110;100;106;104" keyTimes="0;0.3;0.6;0.85;1" dur="9s" begin="-1.4s" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect>
+    <rect x="948"  y="120" width="18" height="20" fill-opacity="0.45"/>
+    <rect x="978"  y="110" width="18" height="30" fill-opacity="0.45"/>
+    <rect x="1008" y="102" width="18" height="38" fill-opacity="0.45">
+      <animate attributeName="y" values="102;96;104;98;102" keyTimes="0;0.3;0.6;0.85;1" dur="11s" begin="-5s" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect>
+    <rect x="1038" y="114" width="18" height="26" fill-opacity="0.45"/>
+    <rect x="1068" y="108" width="18" height="32" fill-opacity="0.45"/>
+    <rect x="1098" y="124" width="18" height="16" fill-opacity="0.45"/>
+    <rect x="1128" y="100" width="18" height="40" fill-opacity="0.45">
+      <animate attributeName="y" values="100;106;98;102;100" keyTimes="0;0.3;0.6;0.85;1" dur="13s" begin="-7s" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#46586A" letter-spacing="0.6">
+    <text x="768" y="154">t-6</text>
+    <text x="1158" y="154" text-anchor="end">t0</text>
+  </g>
+
+  <!-- disclaimer -->
+  <text x="1168" y="46" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="9" fill="#46586A" letter-spacing="0.7">synthetic feed · not market data</text>
+  <text x="1168" y="64" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="9" fill="#46586A" letter-spacing="0.7">not investment advice</text>
+</svg>

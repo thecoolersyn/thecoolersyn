@@ -1,0 +1,240 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="t d">
+  <title id="t">Developer operations dashboard</title>
+  <desc id="d">Simulated engineering dashboard with terminal activity, CPU and memory meters, network packets, uptime, git activity, language indicators and a scrolling trace. All figures are illustrative demo data.</desc>
+
+  <defs>
+    <pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#1C2530" stroke-width="1" opacity="0.4"/>
+    </pattern>
+    <clipPath id="term-clip"><rect x="16" y="42" width="356" height="116"/></clipPath>
+  </defs>
+
+  <rect width="1200" height="300" fill="#05070A"/>
+  <rect width="1200" height="300" fill="url(#g)" opacity="0.3"/>
+
+  <!-- ══════════ PANEL A · TERMINAL ACTIVITY ══════════ -->
+  <rect x="16" y="16" width="376" height="176" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
+  <g stroke="#2A3644" stroke-width="1" fill="none" opacity="0.8">
+    <path d="M16 28V16h12"/><path d="M380 16h12v12"/>
+  </g>
+  <text x="32" y="34" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="10" fill="#7A8B9C" letter-spacing="1.3">TERMINAL ACTIVITY</text>
+  <text x="376" y="34" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="9" fill="#3DDC97" letter-spacing="0.8">● LIVE</text>
+
+  <g clip-path="url(#term-clip)" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10.5">
+    <text x="32" y="58" fill="#46586A">$ node --watch src/index.ts</text>
+    <text x="32" y="76"><tspan fill="#3DDC97">✓</tspan><tspan fill="#7A8B9C"> loaded 12 modules  </tspan><tspan fill="#46586A">0.031s</tspan></text>
+    <text x="32" y="94"><tspan fill="#4DD9E8">[ws]</tspan><tspan fill="#7A8B9C"> connected </tspan><tspan fill="#46586A">/trace</tspan></text>
+    <text x="32" y="112"><tspan fill="#9B7BFF">[llm]</tspan><tspan fill="#7A8B9C"> tool call  </tspan><tspan fill="#C9D4E0">search_repo</tspan></text>
+    <text x="32" y="130"><tspan fill="#E8B44D">[mcp]</tspan><tspan fill="#7A8B9C"> 3 servers ready</tspan></text>
+    <!-- The newest log line crossfades in place. A translating line would
+         collide with the row above it; a discrete swap reads better anyway. -->
+    <text x="32" y="148" fill="#7A8B9C" opacity="1"><tspan fill="#3DDC97">✓</tspan><tspan> build green  sha </tspan><tspan fill="#C9D4E0">a3f91c4</tspan>
+      <animate attributeName="opacity" values="1;0" keyTimes="0;0.5" dur="8s" calcMode="discrete" repeatCount="indefinite"/>
+    </text>
+    <text x="32" y="148" fill="#7A8B9C" opacity="0"><tspan fill="#4DD9E8">→</tspan><tspan> watch mode  </tspan><tspan fill="#46586A">HMR enabled</tspan>
+      <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.5;0.92;1" dur="8s" calcMode="discrete" repeatCount="indefinite"/>
+    </text>
+  </g>
+  <!-- blinking cursor -->
+  <rect x="32" y="152" width="6" height="11" fill="#4DD9E8" opacity="0.85">
+    <animate attributeName="opacity" values="0.85;0.85;0.1;0.1" keyTimes="0;0.45;0.5;1"
+             dur="1.9s" calcMode="spline" keySplines="0.4 0 0.2 1;0 0 1 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+  </rect>
+  <text x="32" y="182" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="9" fill="#46586A" letter-spacing="0.7">Σ=1024 iterations · errno 0</text>
+
+  <!-- ══════════ PANEL B · CPU / MEMORY ══════════ -->
+  <rect x="408" y="16" width="376" height="176" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
+  <g stroke="#2A3644" stroke-width="1" fill="none" opacity="0.8">
+    <path d="M408 28V16h12"/><path d="M772 16h12v12"/>
+  </g>
+  <text x="424" y="34" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="10" fill="#7A8B9C" letter-spacing="1.3">RESOURCES</text>
+  <text x="768" y="34" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="9" fill="#46586A" letter-spacing="0.8">n=8 cores</text>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9"
+     fill="#46586A" letter-spacing="1">
+    <text x="424" y="60">CPU</text>
+    <text x="424" y="92">MEM</text>
+    <text x="424" y="124">DISK</text>
+    <text x="424" y="156">NET</text>
+  </g>
+
+  <g>
+    <!-- tracks -->
+    <rect x="472" y="52" width="228" height="7" fill="#111823"/>
+    <rect x="472" y="84" width="228" height="7" fill="#111823"/>
+    <rect x="472" y="116" width="228" height="7" fill="#111823"/>
+    <rect x="472" y="148" width="228" height="7" fill="#111823"/>
+    <!-- fills -->
+    <rect x="472" y="52" width="228" height="7" fill="#4DD9E8" opacity="0.75">
+      <animate attributeName="width" values="84;118;70;102;84" keyTimes="0;0.25;0.5;0.78;1"
+               dur="9s" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect>
+    <rect x="472" y="84" width="228" height="7" fill="#3DDC97" opacity="0.65">
+      <animate attributeName="width" values="132;112;150;124;132" keyTimes="0;0.3;0.58;0.82;1"
+               dur="11s" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect>
+    <rect x="472" y="116" width="228" height="7" fill="#7A8B9C" opacity="0.45">
+      <animate attributeName="width" values="62;58;68;60;62" keyTimes="0;0.3;0.6;0.85;1"
+               dur="13s" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect>
+    <rect x="472" y="148" width="228" height="7" fill="#9B7BFF" opacity="0.5">
+      <animate attributeName="width" values="40;96;52;78;40" keyTimes="0;0.22;0.5;0.76;1"
+               dur="10s" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#C9D4E0" text-anchor="end">
+    <text x="768" y="60">41%</text>
+    <text x="768" y="92">58%</text>
+    <text x="768" y="124">27%</text>
+    <text x="768" y="156">18%</text>
+  </g>
+
+  <text x="424" y="182" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="9" fill="#46586A" letter-spacing="0.7">stddev=0.004 · Δt=1.000s</text>
+
+  <!-- ══════════ PANEL C · NETWORK PACKETS ══════════ -->
+  <rect x="800" y="16" width="384" height="176" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
+  <g stroke="#2A3644" stroke-width="1" fill="none" opacity="0.8">
+    <path d="M800 28V16h12"/><path d="M1172 16h12v12"/>
+  </g>
+  <text x="816" y="34" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="10" fill="#7A8B9C" letter-spacing="1.3">NETWORK</text>
+  <text x="1168" y="34" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="9" fill="#46586A" letter-spacing="0.8">X-Powered-By: caffeine</text>
+
+  <!-- three lanes -->
+  <g stroke="#1C2530" stroke-width="1">
+    <line x1="832" y1="86" x2="1140" y2="86"/>
+    <line x1="832" y1="124" x2="1140" y2="124"/>
+    <line x1="832" y1="162" x2="1140" y2="162"/>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#46586A">
+    <text x="816" y="89">api</text>
+    <text x="816" y="127">ws</text>
+    <text x="816" y="165">cdn</text>
+  </g>
+  <!-- endpoints -->
+  <g fill="#111823" stroke="#2A3644" stroke-width="1">
+    <rect x="1144" y="80" width="8" height="12" rx="1"/>
+    <rect x="1144" y="118" width="8" height="12" rx="1"/>
+    <rect x="1144" y="156" width="8" height="12" rx="1"/>
+  </g>
+  <!-- packets sliding left, staggered -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#4DD9E8" opacity="0.9">
+    <text x="0" y="91">»</text>
+    <animateTransform attributeName="transform" type="translate" values="836,0;1140,0" dur="3.4s" begin="-0.2s" calcMode="spline" keySplines="0.4 0 0.6 1" repeatCount="indefinite"/>
+    <text x="0" y="91">»</text>
+    <animateTransform attributeName="transform" type="translate" values="900,0;1140,0" dur="3.4s" begin="-1.6s" calcMode="spline" keySplines="0.4 0 0.6 1" repeatCount="indefinite"/>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#3DDC97" opacity="0.85">
+    <text x="0" y="129">▸</text>
+    <animateTransform attributeName="transform" type="translate" values="836,0;1140,0" dur="4.6s" begin="-0.9s" calcMode="spline" keySplines="0.4 0 0.6 1" repeatCount="indefinite"/>
+    <text x="0" y="129">▸</text>
+    <animateTransform attributeName="transform" type="translate" values="958,0;1140,0" dur="4.6s" begin="-2.8s" calcMode="spline" keySplines="0.4 0 0.6 1" repeatCount="indefinite"/>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#9B7BFF" opacity="0.8">
+    <text x="0" y="167">›</text>
+    <animateTransform attributeName="transform" type="translate" values="836,0;1140,0" dur="5.8s" begin="-1.3s" calcMode="spline" keySplines="0.4 0 0.6 1" repeatCount="indefinite"/>
+  </g>
+
+  <text x="816" y="184" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="9" fill="#46586A" letter-spacing="0.7">latency 0.8ms · req/min 1,204</text>
+
+  <!-- ══════════ PANEL D · UPTIME ══════════ -->
+  <rect x="16" y="208" width="376" height="76" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
+  <text x="32" y="228" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="10" fill="#7A8B9C" letter-spacing="1.3">UPTIME</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+    <text x="32" y="256" font-size="20" fill="#C9D4E0" letter-spacing="0.5">41d 07:13:<tspan fill="#4DD9E8">52</tspan></text>
+    <text x="32" y="274" font-size="9" fill="#46586A" letter-spacing="0.7">since 2026-01-04 · pid 0x1f4</text>
+  </g>
+  <!-- seconds field ticking, independent of the static label above -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" fill="#7A8B9C" text-anchor="end">
+    <text x="376" y="256">
+      <tspan fill="#3DDC97">●</tspan><tspan dx="8">stable</tspan>
+    </text>
+    <text x="376" y="274" font-size="9" fill="#46586A">99.98% · n=1 restart</text>
+  </g>
+
+  <!-- ══════════ PANEL E · GIT ACTIVITY ══════════ -->
+  <rect x="408" y="208" width="376" height="76" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
+  <text x="424" y="228" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="10" fill="#7A8B9C" letter-spacing="1.3">GIT ACTIVITY</text>
+  <!-- commit dots, some animate to "just pushed" -->
+  <g>
+    <rect x="424" y="248" width="10" height="10" rx="2" fill="#3DDC97" opacity="0.9"/>
+    <rect x="440" y="248" width="10" height="10" rx="2" fill="#1C2530"/>
+    <rect x="440" y="248" width="10" height="10" rx="2" fill="#3DDC97" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;0.9;0.15;0.9" keyTimes="0;0.4;0.55;1" dur="7s" begin="-0.6s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="456" y="248" width="10" height="10" rx="2" fill="#3DDC97" opacity="0.75"/>
+    <rect x="472" y="248" width="10" height="10" rx="2" fill="#1C2530"/>
+    <rect x="472" y="248" width="10" height="10" rx="2" fill="#3DDC97" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;0.15;0.9;0.9" keyTimes="0;0.16;0.3;1" dur="9s" begin="-3.2s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="488" y="248" width="10" height="10" rx="2" fill="#3DDC97" opacity="0.85"/>
+    <rect x="504" y="248" width="10" height="10" rx="2" fill="#1C2530"/>
+    <rect x="520" y="248" width="10" height="10" rx="2" fill="#3DDC97" opacity="0.8"/>
+    <rect x="536" y="248" width="10" height="10" rx="2" fill="#1C2530"/>
+    <rect x="536" y="248" width="10" height="10" rx="2" fill="#3DDC97" opacity="0.9">
+      <animate attributeName="opacity" values="0.9;0.9;0.15;0.9" keyTimes="0;0.5;0.62;1" dur="11s" begin="-5.4s" repeatCount="indefinite"/>
+    </rect>
+    <rect x="552" y="248" width="10" height="10" rx="2" fill="#3DDC97" opacity="0.7"/>
+    <rect x="568" y="248" width="10" height="10" rx="2" fill="#1C2530"/>
+    <rect x="584" y="248" width="10" height="10" rx="2" fill="#3DDC97" opacity="0.85"/>
+    <rect x="600" y="248" width="10" height="10" rx="2" fill="#1C2530"/>
+    <rect x="616" y="248" width="10" height="10" rx="2" fill="#3DDC97" opacity="0.8"/>
+    <rect x="632" y="248" width="10" height="10" rx="2" fill="#1C2530"/>
+    <rect x="648" y="248" width="10" height="10" rx="2" fill="#3DDC97" opacity="0.75"/>
+    <rect x="664" y="248" width="10" height="10" rx="2" fill="#1C2530"/>
+    <rect x="680" y="248" width="10" height="10" rx="2" fill="#3DDC97" opacity="0.9"/>
+    <rect x="696" y="248" width="10" height="10" rx="2" fill="#1C2530"/>
+    <rect x="712" y="248" width="10" height="10" rx="2" fill="#3DDC97" opacity="0.65"/>
+  </g>
+  <!-- branch line -->
+  <path d="M424 240 h48" stroke="#2A3644" stroke-width="1" fill="none"/>
+  <circle cx="424" cy="240" r="2" fill="#46586A"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#46586A" letter-spacing="0.7">
+    <text x="484" y="243">main</text>
+    <text x="424" y="274">12 commits today · head a3f91c4</text>
+  </g>
+
+  <!-- ══════════ PANEL F · LANGUAGES ══════════ -->
+  <rect x="800" y="208" width="384" height="76" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
+  <text x="816" y="228" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="10" fill="#7A8B9C" letter-spacing="1.3">LANGUAGES</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#C9D4E0">
+    <text x="816" y="244">TS</text><text x="816" y="260">PY</text><text x="816" y="276">LUA</text>
+  </g>
+  <g>
+    <rect x="852" y="238" width="240" height="5" fill="#111823"/>
+    <rect x="852" y="238" width="240" height="5" fill="#4DD9E8" opacity="0.7">
+      <animate attributeName="width" values="168;174;162;170;168" keyTimes="0;0.3;0.6;0.85;1" dur="12s" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect>
+    <rect x="852" y="254" width="240" height="5" fill="#111823"/>
+    <rect x="852" y="254" width="240" height="5" fill="#3DDC97" opacity="0.6">
+      <animate attributeName="width" values="96;92;104;94;96" keyTimes="0;0.28;0.6;0.85;1" dur="9s" begin="-2s" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect>
+    <rect x="852" y="270" width="240" height="5" fill="#111823"/>
+    <rect x="852" y="270" width="240" height="5" fill="#7A8B9C" opacity="0.5">
+      <animate attributeName="width" values="52;58;48;54;52" keyTimes="0;0.3;0.6;0.85;1" dur="14s" begin="-4s" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#46586A" text-anchor="end">
+    <text x="1168" y="244">70%</text>
+    <text x="1168" y="260">40%</text>
+    <text x="1168" y="276">22%</text>
+  </g>
+
+  <!-- footer strip -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#46586A" letter-spacing="0.8">
+    <text x="16" y="294">DEMO · simulated telemetry — not live system data</text>
+    <text x="1184" y="294" text-anchor="end">HTTP 200 · ETag: "a3f91c4" · λ=0.0021</text>
+  </g>
+</svg>

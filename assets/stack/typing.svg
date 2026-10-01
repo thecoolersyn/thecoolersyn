@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="180" viewBox="0 0 640 180" role="img" aria-labelledby="t d">
+  <title id="t">Code typing animation</title>
+  <desc id="d">A terminal card in which a short TypeScript snippet is progressively revealed by a typing cursor, then resets and loops.</desc>
+
+  <defs>
+    <!-- One reveal mask per line: an animating width produces the typing effect.
+         Matching negative begin values mean every line is already partly
+         revealed on first paint, so there is no blank opening frame. -->
+    <clipPath id="l1"><rect x="28" y="74" width="0" height="14">
+      <animate attributeName="width" values="0;0;238;238;0" keyTimes="0;0.05;0.28;0.84;1"
+               dur="11s" begin="-0.9s" calcMode="spline"
+               keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect></clipPath>
+    <clipPath id="l2"><rect x="28" y="96" width="0" height="14">
+      <animate attributeName="width" values="0;0;296;296;0" keyTimes="0;0.20;0.42;0.84;1"
+               dur="11s" begin="-0.9s" calcMode="spline"
+               keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect></clipPath>
+    <clipPath id="l3"><rect x="28" y="118" width="0" height="14">
+      <animate attributeName="width" values="0;0;210;210;0" keyTimes="0;0.36;0.56;0.84;1"
+               dur="11s" begin="-0.9s" calcMode="spline"
+               keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect></clipPath>
+    <clipPath id="l4"><rect x="28" y="140" width="0" height="14">
+      <animate attributeName="width" values="0;0;264;264;0" keyTimes="0;0.50;0.70;0.84;1"
+               dur="11s" begin="-0.9s" calcMode="spline"
+               keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect></clipPath>
+    <!-- cursor tracks the reveal edge of the last line -->
+    <clipPath id="cur"><rect x="24" y="140" width="0" height="14">
+      <animate attributeName="width" values="0;0;264;264;0" keyTimes="0;0.50;0.70;0.84;1"
+               dur="11s" begin="-0.9s" calcMode="spline"
+               keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect></clipPath>
+  </defs>
+
+  <rect width="640" height="180" fill="#05070A"/>
+
+  <rect x="8" y="8" width="624" height="164" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
+  <rect x="8" y="8" width="624" height="30" rx="2" fill="#111823"/>
+  <line x1="8" y1="38" x2="632" y2="38" stroke="#1C2530" stroke-width="1"/>
+  <g stroke="#2A3644" stroke-width="1" fill="none" opacity="0.8"><path d="M8 20V8h12"/><path d="M620 8h12v12"/></g>
+
+  <rect x="24" y="18" width="8" height="8" rx="1" fill="#2A3644"/>
+  <rect x="38" y="18" width="8" height="8" rx="1" fill="#2A3644"/>
+  <rect x="52" y="18" width="8" height="8" rx="1" fill="#1C2530"/>
+  <text x="76" y="27" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="10" fill="#7A8B9C" letter-spacing="0.6">agent.ts — editor</text>
+  <text x="620" y="27" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="9" fill="#46586A" letter-spacing="0.8">utf-8 · TS</text>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11.5">
+    <!-- dim prompt line, always visible -->
+    <text x="28" y="62"><tspan fill="#46586A">$</tspan><tspan fill="#C9D4E0"> npx tsx watch src/agent.ts</tspan></text>
+
+    <!-- line 1 -->
+    <g clip-path="url(#l1)">
+      <text x="28" y="86"><tspan fill="#9B7BFF">export async function</tspan><tspan fill="#4DD9E8"> run</tspan><tspan fill="#C9D4E0">(task: </tspan><tspan fill="#E8B44D">Task</tspan><tspan fill="#C9D4E0">) {</tspan></text>
+    </g>
+    <!-- line 2 -->
+    <g clip-path="url(#l2)">
+      <text x="28" y="108"><tspan fill="#C9D4E0">  </tspan><tspan fill="#9B7BFF">const</tspan><tspan fill="#C9D4E0"> trace </tspan><tspan fill="#4DD9E8">=</tspan><tspan fill="#7A8B9C"> await </tspan><tspan fill="#C9D4E0">mcp</tspan><tspan fill="#7A8B9C">.</tspan><tspan fill="#C9D4E0">dispatch</tspan><tspan fill="#7A8B9C">(task)</tspan></text>
+    </g>
+    <!-- line 3 -->
+    <g clip-path="url(#l3)">
+      <text x="28" y="130"><tspan fill="#C9D4E0">  </tspan><tspan fill="#9B7BFF">return</tspan><tspan fill="#C9D4E0"> trace</tspan></text>
+    </g>
+    <!-- line 4 — reveal edge marker -->
+    <g clip-path="url(#l4)">
+      <text x="28" y="152"><tspan fill="#C9D4E0">}</tspan><tspan fill="#46586A">   // errno 0</tspan></text>
+    </g>
+
+    <!-- cursor sits at the head of the last reveal -->
+    <g clip-path="url(#cur)">
+      <rect x="24" y="142" width="6" height="12" fill="#4DD9E8" opacity="0.9">
+        <animate attributeName="opacity" values="0.9;0.9;0.15;0.15" keyTimes="0;0.45;0.5;1"
+                 dur="1.9s" calcMode="spline" keySplines="0.4 0 0.2 1;0 0 1 1;0.4 0 0.2 1"
+                 repeatCount="indefinite"/>
+      </rect>
+    </g>
+  </g>
+
+  <text x="616" y="164" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="9" fill="#46586A" letter-spacing="0.7">Δt=0.031s · sha a3f91c4</text>
+</svg>

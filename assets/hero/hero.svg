@@ -1,0 +1,277 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="t d">
+  <title id="t">Terminal hero banner — software, technology, finance and motorcycles</title>
+  <desc id="d">A dark terminal window showing code and a shell prompt, with technical HUD panels for system metrics, a market sparkline and a tachometer arc. All values are simulated.</desc>
+
+  <defs>
+    <!-- Faint engineering grid -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#1C2530" stroke-width="1" opacity="0.5"/>
+    </pattern>
+    <pattern id="grid-fine" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M10 0H0V10" fill="none" stroke="#1C2530" stroke-width="1" opacity="0.22"/>
+    </pattern>
+
+    <clipPath id="win-clip">
+      <rect x="32" y="28" width="1136" height="364" rx="2"/>
+    </clipPath>
+    <clipPath id="signal-clip">
+      <rect x="670" y="206" width="468" height="66"/>
+    </clipPath>
+
+    <!-- Soft cyan atmosphere, very low opacity -->
+    <radialGradient id="atmo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0%" stop-color="#4DD9E8" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#4DD9E8" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Typing reveal masks -->
+    <clipPath id="type-a"><rect x="60" y="164" width="0" height="16">
+      <animate attributeName="width" values="0;0;232;232;0" keyTimes="0;0.06;0.30;0.86;1"
+               dur="13s" begin="-1.4s" calcMode="spline"
+               keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect></clipPath>
+    <clipPath id="type-b"><rect x="60" y="188" width="0" height="16">
+      <animate attributeName="width" values="0;0;268;268;0" keyTimes="0;0.20;0.44;0.86;1"
+               dur="13s" begin="-1.4s" calcMode="spline"
+               keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect></clipPath>
+    <clipPath id="type-c"><rect x="60" y="308" width="0" height="16">
+      <animate attributeName="width" values="0;0;196;196;0" keyTimes="0;0.38;0.60;0.86;1"
+               dur="13s" begin="-1.4s" calcMode="spline"
+               keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect></clipPath>
+
+    <!-- Sweep highlight travelling along the underline -->
+    <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#4DD9E8" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#4DD9E8" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#4DD9E8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ══════════ BACKGROUND ══════════ -->
+  <rect width="1200" height="420" fill="#05070A"/>
+  <rect width="1200" height="420" fill="url(#grid)" opacity="0.35"/>
+  <ellipse cx="600" cy="210" rx="520" ry="200" fill="url(#atmo)"/>
+
+  <!-- HUD corner crop marks -->
+  <g stroke="#2A3644" stroke-width="1" fill="none" opacity="0.9">
+    <path d="M16 40V16H40"/><path d="M1160 16h24v24"/><path d="M1184 380v24h-24"/><path d="M40 404H16v-24"/>
+  </g>
+  <g stroke="#46586A" stroke-width="1" opacity="0.5">
+    <path d="M600 10v8M596 14h8"/><path d="M300 412v-8M296 408h8"/>
+  </g>
+
+  <!-- ══════════ WINDOW ══════════ -->
+  <g clip-path="url(#win-clip)">
+    <rect x="32" y="28" width="1136" height="364" fill="#0A0E14"/>
+    <rect x="32" y="28" width="1136" height="364" fill="url(#grid-fine)" opacity="0.5"/>
+
+    <!-- Titlebar -->
+    <rect x="32" y="28" width="1136" height="34" fill="#111823"/>
+    <line x1="32" y1="62" x2="1168" y2="62" stroke="#1C2530" stroke-width="1"/>
+
+    <!-- Window dots -->
+    <rect x="52" y="41" width="8" height="8" rx="1" fill="#2A3644"/>
+    <rect x="66" y="41" width="8" height="8" rx="1" fill="#2A3644"/>
+    <rect x="80" y="41" width="8" height="8" rx="1" fill="#1C2530"/>
+
+    <text x="104" y="50" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="12" fill="#7A8B9C" letter-spacing="0.6">~/dev — zsh</text>
+    <text x="1160" y="50" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="10" fill="#46586A" letter-spacing="0.8">0x7f3a9c21  ·  41d 07:13:52  ·  git:main*</text>
+
+    <!-- Scrolling scanline drift, very subtle -->
+    <rect x="32" y="62" width="1136" height="1" fill="#4DD9E8" opacity="0.10">
+      <animate attributeName="y" values="62;390" dur="11s" calcMode="spline" keySplines="0.4 0 0.2 1" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.10;0.03;0.10" dur="11s" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- ══════════ LEFT: TERMINAL ══════════ -->
+    <text x="60" y="94" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="10" fill="#46586A" letter-spacing="1.4">TERMINAL · /dev/null — bash</text>
+    <line x1="60" y1="102" x2="600" y2="102" stroke="#1C2530" stroke-width="1"/>
+
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5">
+      <!-- dim command echo -->
+      <text x="60" y="128" fill="#46586A">$ make -j$(nproc) &amp;&amp; ./deploy --env=prod</text>
+
+      <!-- comment -->
+      <text x="60" y="152" fill="#46586A"># build 0x7f3a9c21 · rev a3f91c4</text>
+
+      <!-- typed line A: cyan-accented -->
+      <g clip-path="url(#type-a)">
+        <text x="60" y="176"><tspan fill="#3DDC97">const</tspan><tspan fill="#7A8B9C"> pipeline </tspan><tspan fill="#4DD9E8">=</tspan><tspan fill="#C9D4E0"> buildStream</tspan><tspan fill="#7A8B9C">({</tspan><tspan fill="#9B7BFF"> retries</tspan><tspan fill="#7A8B9C">: </tspan><tspan fill="#E8B44D">3</tspan><tspan fill="#7A8B9C"> })</tspan></text>
+      </g>
+
+      <!-- typed line B -->
+      <g clip-path="url(#type-b)">
+        <text x="60" y="200"><tspan fill="#7A8B9C">  </tspan><tspan fill="#9B7BFF">await</tspan><tspan fill="#C9D4E0"> pipeline.run</tspan><tspan fill="#7A8B9C">()  </tspan><tspan fill="#46586A">// 0.031s</tspan></text>
+      </g>
+
+      <!-- diff block, static -->
+      <text x="60" y="224" fill="#46586A">  diff --git a/engine.ts b/engine.ts</text>
+      <text x="60" y="248"><tspan fill="#3DDC97">+ </tspan><tspan fill="#C9D4E0">on(</tspan><tspan fill="#4DD9E8">"trace"</tspan><tspan fill="#C9D4E0">, tick)</tspan></text>
+      <text x="60" y="272"><tspan fill="#FF5C7A">- </tspan><tspan fill="#7A8B9C">legacy_loop()</tspan></text>
+      <text x="60" y="296"><tspan fill="#3DDC97">+ </tspan><tspan fill="#C9D4E0">emit(</tspan><tspan fill="#4DD9E8">"trace"</tspan><tspan fill="#C9D4E0">)</tspan><tspan fill="#46586A">  </tspan><tspan fill="#46586A">// O(1) amortized</tspan></text>
+
+      <!-- typed line C -->
+      <g clip-path="url(#type-c)">
+        <text x="60" y="320"><tspan fill="#7A8B9C">$ </tspan><tspan fill="#C9D4E0">git push</tspan><tspan fill="#3DDC97"> origin main</tspan></text>
+      </g>
+    </g>
+
+    <!-- Blinking block cursor -->
+    <rect x="60" y="308" width="8" height="14" fill="#4DD9E8" opacity="0.85">
+      <animate attributeName="opacity" values="0.85;0.85;0.12;0.12" keyTimes="0;0.45;0.5;1"
+               dur="1.9s" calcMode="spline" keySplines="0.4 0 0.2 1;0 0 1 1;0.4 0 0.2 1"
+               repeatCount="indefinite"/>
+    </rect>
+
+    <!-- Dim active underline sweep -->
+    <rect x="60" y="338" width="540" height="1" fill="url(#sweep)" opacity="0.6">
+      <animate attributeName="x" values="60;300" dur="9s" calcMode="spline" keySplines="0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect>
+
+    <!-- Vertical hairline separating terminal from HUD panels -->
+    <line x1="632" y1="78" x2="632" y2="376" stroke="#1C2530" stroke-width="1"/>
+
+    <!-- ══════════ RIGHT: HUD PANELS ══════════ -->
+
+    <!-- Panel 1: SYSTEM -->
+    <g>
+      <rect x="656" y="78" width="496" height="92" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
+      <text x="672" y="98" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+            font-size="10" fill="#7A8B9C" letter-spacing="1.3">SYSTEM</text>
+      <text x="1136" y="98" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+            font-size="10" fill="#3DDC97" letter-spacing="0.8">NOMINAL</text>
+
+      <!-- meters -->
+      <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#46586A" letter-spacing="0.8">
+        <text x="672" y="122">CPU</text>
+        <text x="672" y="152">MEM</text>
+      </g>
+      <g>
+        <rect x="712" y="115" width="252" height="6" fill="#111823"/>
+        <rect x="712" y="115" width="252" height="6" fill="#4DD9E8" opacity="0.75">
+          <animate attributeName="width" values="96;132;88;118;96" keyTimes="0;0.25;0.5;0.75;1"
+                   dur="9s" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1"
+                   repeatCount="indefinite"/>
+        </rect>
+        <rect x="712" y="145" width="252" height="6" fill="#111823"/>
+        <rect x="712" y="145" width="252" height="6" fill="#3DDC97" opacity="0.65">
+          <animate attributeName="width" values="150;126;164;138;150" keyTimes="0;0.3;0.55;0.8;1"
+                   dur="12s" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1"
+                   repeatCount="indefinite"/>
+        </rect>
+      </g>
+      <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" fill="#C9D4E0" text-anchor="end">
+        <text x="1136" y="122">41%</text>
+        <text x="1136" y="152">59%</text>
+      </g>
+    </g>
+
+    <!-- Panel 2: SIGNAL / market trace -->
+    <g>
+      <rect x="656" y="182" width="496" height="112" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
+      <text x="672" y="202" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+            font-size="10" fill="#7A8B9C" letter-spacing="1.3">SIGNAL</text>
+      <text x="1136" y="202" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+            font-size="9" fill="#46586A" letter-spacing="0.8">SIMULATED</text>
+
+      <!-- baseline + grid -->
+      <line x1="672" y1="270" x2="1136" y2="270" stroke="#1C2530" stroke-width="1"/>
+      <line x1="672" y1="242" x2="1136" y2="242" stroke="#1C2530" stroke-width="1" opacity="0.45"/>
+
+      <!-- scrolling trace: two copies moving left in lockstep for a seamless loop.
+           Clipped to the panel so the wrap-around never bleeds into the terminal. -->
+      <g clip-path="url(#signal-clip)">
+        <g fill="none" stroke="#4DD9E8" stroke-width="1.4" stroke-linejoin="round" opacity="0.85">
+          <path d="M672 262 L700 254 L724 258 L752 244 L780 250 L808 236 L836 242 L864 230 L892 238 L920 226 L948 232 L976 220 L1004 228 L1032 218 L1060 224 L1088 212 L1116 220 L1144 214"/>
+          <animateTransform attributeName="transform" type="translate" from="0 0" to="-472 0"
+                            dur="7s" calcMode="spline" keySplines="0.4 0 0.2 1" repeatCount="indefinite"/>
+          <path d="M672 262 L700 254 L724 258 L752 244 L780 250 L808 236 L836 242 L864 230 L892 238 L920 226 L948 232 L976 220 L1004 228 L1032 218 L1060 224 L1088 212 L1116 220 L1144 214"/>
+          <animateTransform attributeName="transform" type="translate" from="0 0" to="-472 0"
+                            dur="7s" begin="-7s" calcMode="spline" keySplines="0.4 0 0.2 1" repeatCount="indefinite"/>
+        </g>
+      </g>
+
+      <text x="672" y="286" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+            font-size="9" fill="#46586A" letter-spacing="0.8">t-24h ──────────────── t0</text>
+      <text x="1136" y="286" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+            font-size="9" fill="#46586A">σ=0.0041</text>
+    </g>
+
+    <!-- Panel 3: tach arc + build status -->
+    <g>
+      <rect x="656" y="306" width="240" height="70" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
+      <text x="672" y="326" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+            font-size="10" fill="#7A8B9C" letter-spacing="1.3">TACH</text>
+
+      <!-- 200° arc track, centred at 776,352 r=34 -->
+      <g transform="translate(776 352)">
+        <path d="M -30.6 15.0 A 34 34 0 1 1 30.6 15.0" fill="none" stroke="#1C2530" stroke-width="3" stroke-linecap="butt"/>
+        <!-- redline segment -->
+        <path d="M 25.7 21.9 A 34 34 0 0 0 30.6 15.0" fill="none" stroke="#FF5C7A" stroke-width="3" opacity="0.55"/>
+        <!-- sweeping progress arc (dash offset) -->
+        <path d="M -30.6 15.0 A 34 34 0 1 1 30.6 15.0" fill="none" stroke="#4DD9E8" stroke-width="3"
+              stroke-dasharray="107" stroke-dashoffset="86" stroke-linecap="butt">
+          <animate attributeName="stroke-dashoffset" values="86;14;58;24;86" keyTimes="0;0.28;0.55;0.8;1"
+                   dur="10s" calcMode="spline"
+                   keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+        </path>
+        <!-- needle -->
+        <line x1="0" y1="0" x2="0" y2="-28" stroke="#C9D4E0" stroke-width="1.2" stroke-linecap="round">
+          <animateTransform attributeName="transform" type="rotate" values="-100;100;-100"
+                            dur="10s" calcMode="spline" keySplines="0.4 0 0.2 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+        </line>
+        <circle r="2" fill="#0A0E14" stroke="#2A3644" stroke-width="1"/>
+      </g>
+      <text x="822" y="352" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+            font-size="9" fill="#46586A" letter-spacing="0.8">7 240 rpm</text>
+      <text x="822" y="366" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+            font-size="9" fill="#46586A">§02/07</text>
+    </g>
+
+    <!-- Panel 4: build status -->
+    <g>
+      <rect x="912" y="306" width="240" height="70" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
+      <text x="928" y="326" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+            font-size="10" fill="#7A8B9C" letter-spacing="1.3">BUILD</text>
+
+      <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" letter-spacing="0.6">
+        <!-- OK, steady -->
+        <circle cx="932" cy="344" r="2.5" fill="#3DDC97"/>
+        <text x="944" y="347" fill="#3DDC97">OK</text>
+        <text x="1136" y="347" text-anchor="end" fill="#46586A">0.031s</text>
+        <!-- DEPLOY, pulsing dot -->
+        <circle cx="932" cy="364" r="2.5" fill="#4DD9E8" opacity="0.35">
+          <animate attributeName="opacity" values="0.35;1;0.35" dur="2.6s" calcMode="spline" keySplines="0.4 0 0.2 1" repeatCount="indefinite"/>
+        </circle>
+        <text x="944" y="367" fill="#4DD9E8">DEPLOY</text>
+        <text x="1136" y="367" text-anchor="end" fill="#46586A">pid 0x1f4</text>
+      </g>
+    </g>
+
+    <!-- Faint motorcycle silhouette, bottom-left of the terminal, decorative only -->
+    <g opacity="0.14" fill="none" stroke="#4DD9E8" stroke-width="1" stroke-linecap="round">
+      <path d="M96 376 l26 -18 l30 0 l10 -12 l-22 -6 l-14 8"/>
+      <path d="M122 358 a 11 11 0 1 0 0.1 0"/>
+      <path d="M172 358 a 11 11 0 1 0 0.1 0"/>
+      <path d="M133 358 h28"/>
+    </g>
+  </g>
+
+  <!-- ══════════ WINDOW BORDER + TICK MARKS ══════════ -->
+  <rect x="32" y="28" width="1136" height="364" rx="2" fill="none" stroke="#1C2530" stroke-width="1"/>
+  <g stroke="#2A3644" stroke-width="1" fill="none" opacity="0.85">
+    <path d="M32 40V28h12"/><path d="M1156 28h12v12"/><path d="M1168 380v12h-12"/><path d="M44 392H32v-12"/>
+  </g>
+
+  <!-- Footer telemetry outside window -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9"
+     fill="#46586A" letter-spacing="0.8" opacity="0.8">
+    <text x="16" y="410">HTTP 200</text>
+    <text x="1184" y="410" text-anchor="end">software · technology · finance · motorcycles</text>
+  </g>
+</svg>

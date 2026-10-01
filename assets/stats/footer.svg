@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="200" viewBox="0 0 1200 200" role="img" aria-labelledby="t d">
+  <title id="t">Footer — end of stream</title>
+  <desc id="d">A quiet closing banner: a terminal that has exited cleanly, with a dim prompt, a blinking cursor and small technical details.</desc>
+
+  <defs>
+    <pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#1C2530" stroke-width="1" opacity="0.3"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="200" fill="#05070A"/>
+  <rect width="1200" height="200" fill="url(#g)" opacity="0.25"/>
+
+  <g stroke="#2A3644" stroke-width="1" fill="none" opacity="0.7">
+    <path d="M40 44V32h12"/><path d="M1148 32h12v12"/>
+    <path d="M40 156v12h12"/><path d="M1160 168h-12v-12"/>
+  </g>
+
+  <!-- hairline rules -->
+  <line x1="120" y1="60" x2="520" y2="60" stroke="#1C2530" stroke-width="1"/>
+  <line x1="680" y1="60" x2="1080" y2="60" stroke="#1C2530" stroke-width="1"/>
+
+  <!-- centred close -->
+  <text x="600" y="64" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="11" fill="#7A8B9C" letter-spacing="3">END OF STREAM</text>
+
+  <!-- prompt + blinking cursor -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12">
+    <text x="600" y="108" text-anchor="middle"><tspan fill="#46586A">~ $</tspan><tspan dx="10" fill="#C9D4E0">exit 0</tspan></text>
+  </g>
+  <rect x="656" y="99" width="7" height="12" fill="#4DD9E8" opacity="0.7">
+    <animate attributeName="opacity" values="0.7;0.7;0.1;0.1" keyTimes="0;0.45;0.5;1"
+             dur="2.4s" calcMode="spline" keySplines="0.4 0 0.2 1;0 0 1 1;0.4 0 0.2 1" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- easter eggs -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9"
+     fill="#46586A" letter-spacing="0.8">
+    <text x="600" y="134" text-anchor="middle">errno 0 · Δt=0.031s · BUILD ● OK · pid 0x1f4 · 0x7f3a9c21</text>
+  </g>
+
+  <!-- a single very dim pulsing dot, the only motion besides the cursor -->
+  <circle cx="600" cy="160" r="2" fill="#3DDC97" opacity="0.25">
+    <animate attributeName="opacity" values="0.15;0.5;0.15" dur="6s" calcMode="spline" keySplines="0.4 0 0.2 1" repeatCount="indefinite"/>
+  </circle>
+  <line x1="540" y1="160" x2="590" y2="160" stroke="#1C2530" stroke-width="1"/>
+  <line x1="610" y1="160" x2="660" y2="160" stroke="#1C2530" stroke-width="1"/>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9"
+     fill="#46586A" letter-spacing="0.7">
+    <text x="40" y="190">~ $ cat /dev/null</text>
+    <text x="1160" y="190" text-anchor="end">HTTP 200 · ETag: "a3f91c4"</text>
+  </g>
+</svg>

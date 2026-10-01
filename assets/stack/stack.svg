@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="t d">
+  <title id="t">Technology stack</title>
+  <desc id="d">Four grouped cards listing languages, runtime and framework, tooling, and AI developer tooling used in software engineering work.</desc>
+
+  <rect width="1200" height="300" fill="#05070A"/>
+
+  <text x="16" y="26" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="10" fill="#7A8B9C" letter-spacing="1.3">STACK</text>
+  <text x="1184" y="26" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="9" fill="#46586A" letter-spacing="0.8">12 slots · idle 0 · 0x7f3a9c21</text>
+  <line x1="16" y1="34" x2="1184" y2="34" stroke="#1C2530" stroke-width="1"/>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- CARD 1 · LANGUAGES — edit the rows between the EDIT markers below.  -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <g>
+    <rect x="16" y="48" width="284" height="236" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
+    <g stroke="#2A3644" stroke-width="1" fill="none" opacity="0.8"><path d="M16 60V48h12"/></g>
+    <text x="32" y="70" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="10" fill="#7A8B9C" letter-spacing="1.3">LANGUAGES</text>
+    <line x1="32" y1="80" x2="284" y2="80" stroke="#1C2530" stroke-width="1"/>
+
+    <!-- EDIT:LANGUAGES:BEGIN -->
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11">
+      <g fill="#C9D4E0">
+        <text x="32" y="100">TypeScript</text>
+        <text x="32" y="128">JavaScript</text>
+        <text x="32" y="156">Python</text>
+        <text x="32" y="184">Lua / Luau</text>
+        <text x="32" y="212">Java</text>
+        <text x="32" y="240">C++</text>
+      </g>
+      <g fill="#46586A" font-size="10">
+        <text x="32" y="115" letter-spacing="0.5">typed · systems · web</text>
+        <text x="32" y="143" letter-spacing="0.5">runtime, tooling, glue</text>
+        <text x="32" y="171" letter-spacing="0.5">data · automation · agents</text>
+        <text x="32" y="199" letter-spacing="0.5">embedded · game scripting</text>
+        <text x="32" y="227" letter-spacing="0.5">services · platforms</text>
+        <text x="32" y="255" letter-spacing="0.5">performance · native</text>
+      </g>
+    </g>
+    <!-- EDIT:LANGUAGES:END -->
+  </g>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- CARD 2 · RUNTIME & FRAMEWORK                                         -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <g>
+    <rect x="316" y="48" width="284" height="236" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
+    <g stroke="#2A3644" stroke-width="1" fill="none" opacity="0.8"><path d="M316 60V48h12"/></g>
+    <text x="332" y="70" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="10" fill="#7A8B9C" letter-spacing="1.3">RUNTIME &amp; FRAMEWORK</text>
+    <line x1="332" y1="80" x2="584" y2="80" stroke="#1C2530" stroke-width="1"/>
+
+    <!-- EDIT:RUNTIME:BEGIN -->
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11">
+      <g fill="#C9D4E0">
+        <text x="332" y="100">React</text>
+        <text x="332" y="128">Next.js</text>
+        <text x="332" y="156">Node.js</text>
+        <text x="332" y="184">Docker</text>
+        <text x="332" y="212">Linux</text>
+      </g>
+      <g fill="#46586A" font-size="10">
+        <text x="332" y="115" letter-spacing="0.5">ui · component systems</text>
+        <text x="332" y="143" letter-spacing="0.5">full-stack · rendering</text>
+        <text x="332" y="171" letter-spacing="0.5">services · CLIs · tooling</text>
+        <text x="332" y="199" letter-spacing="0.5">reproducible environments</text>
+        <text x="332" y="227" letter-spacing="0.5">the actual runtime</text>
+      </g>
+    </g>
+    <!-- EDIT:RUNTIME:END -->
+  </g>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- CARD 3 · TOOLING                                                    -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <g>
+    <rect x="616" y="48" width="284" height="236" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
+    <g stroke="#2A3644" stroke-width="1" fill="none" opacity="0.8"><path d="M616 60V48h12"/></g>
+    <text x="632" y="70" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="10" fill="#7A8B9C" letter-spacing="1.3">TOOLING</text>
+    <line x1="632" y1="80" x2="884" y2="80" stroke="#1C2530" stroke-width="1"/>
+
+    <!-- EDIT:TOOLING:BEGIN -->
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11">
+      <g fill="#C9D4E0">
+        <text x="632" y="100">Git</text>
+        <text x="632" y="128">GitHub Actions</text>
+        <text x="632" y="156">MCP</text>
+        <text x="632" y="184">Automation</text>
+        <text x="632" y="212">Testing</text>
+      </g>
+      <g fill="#46586A" font-size="10">
+        <text x="632" y="115" letter-spacing="0.5">branching · history</text>
+        <text x="632" y="143" letter-spacing="0.5">ci · release pipelines</text>
+        <text x="632" y="171" letter-spacing="0.5">model context protocol</text>
+        <text x="632" y="199" letter-spacing="0.5">cron · scripts · bots</text>
+        <text x="632" y="227" letter-spacing="0.5">because regressions are real</text>
+      </g>
+    </g>
+    <!-- EDIT:TOOLING:END -->
+  </g>
+
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <!-- CARD 4 · AI / DEV TOOLING                                            -->
+  <!-- ══════════════════════════════════════════════════════════════════ -->
+  <g>
+    <rect x="916" y="48" width="268" height="236" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
+    <g stroke="#2A3644" stroke-width="1" fill="none" opacity="0.8"><path d="M916 60V48h12"/><path d="M1172 48h12v12"/></g>
+    <text x="932" y="70" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="10" fill="#9B7BFF" letter-spacing="1.3">AI / DEV TOOLING</text>
+    <line x1="932" y1="80" x2="1168" y2="80" stroke="#1C2530" stroke-width="1"/>
+
+    <!-- EDIT:AI:BEGIN -->
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11">
+      <g fill="#C9D4E0">
+        <text x="932" y="100">LLMs</text>
+        <text x="932" y="128">AI coding agents</text>
+        <text x="932" y="156">MCP servers</text>
+        <text x="932" y="184">Prompting</text>
+        <text x="932" y="212">Local AI</text>
+      </g>
+      <g fill="#46586A" font-size="10">
+        <text x="932" y="115" letter-spacing="0.5">reasoning · retrieval</text>
+        <text x="932" y="143" letter-spacing="0.5">delegating real work</text>
+        <text x="932" y="171" letter-spacing="0.5">tools · context · transport</text>
+        <text x="932" y="199" letter-spacing="0.5">evals · iteration</text>
+        <text x="932" y="227" letter-spacing="0.5">experiments on my own box</text>
+      </g>
+    </g>
+    <!-- EDIT:AI:END -->
+  </g>
+
+  <!-- ══════════ SUBTLE PRESENCE INDICATORS ══════════
+       One animated 1px rule per column, staggered. Kills two birds: the panel
+       feels alive, and the eye gets a horizontal rhythm line to track.       -->
+  <g>
+    <rect x="32"  y="264" width="252" height="1" fill="#1C2530"/>
+    <rect x="32"  y="264" width="252" height="1" fill="#4DD9E8" opacity="0.5">
+      <animate attributeName="width" values="0;252" dur="6s" begin="-1s" calcMode="spline" keySplines="0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect>
+    <rect x="332" y="264" width="252" height="1" fill="#1C2530"/>
+    <rect x="332" y="264" width="252" height="1" fill="#4DD9E8" opacity="0.5">
+      <animate attributeName="width" values="0;252" dur="6s" begin="-2.2s" calcMode="spline" keySplines="0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect>
+    <rect x="632" y="264" width="252" height="1" fill="#1C2530"/>
+    <rect x="632" y="264" width="252" height="1" fill="#4DD9E8" opacity="0.5">
+      <animate attributeName="width" values="0;252" dur="6s" begin="-3.4s" calcMode="spline" keySplines="0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect>
+    <rect x="932" y="264" width="236" height="1" fill="#1C2530"/>
+    <rect x="932" y="264" width="236" height="1" fill="#9B7BFF" opacity="0.5">
+      <animate attributeName="width" values="0;236" dur="6s" begin="-4.6s" calcMode="spline" keySplines="0.4 0 0.2 1" repeatCount="indefinite"/>
+    </rect>
+  </g>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#46586A" letter-spacing="0.7">
+    <text x="16" y="292">n=6 columns · O(1) lookup</text>
+    <text x="1184" y="292" text-anchor="end">$ which tsc &amp;&amp; tsc --version</text>
+  </g>
+</svg>
