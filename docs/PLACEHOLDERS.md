@@ -47,18 +47,23 @@ connect row. Run `grep -c '⟦USERNAME⟧' README.md` to confirm you hit them al
 
 ## 4. Featured projects — `assets/projects/projects.svg`
 
-Six modules. Each is wrapped in `<!-- EDIT:PROJECT:n:BEGIN -->` … `END` markers.
-For each: the **category tag**, **name**, **one-line description**, and
-**tech line**.
+Five modules, each wrapped in `<!-- EDIT:PROJECT:n:BEGIN -->` … `END`. For each:
+the **category tag**, **name**, **one-line description**, and **tech line**.
 
-| # | Current placeholder | Category |
+These now list **real public repositories** (verified against the GitHub API),
+replacing the earlier invented placeholders. Replace them as better work lands.
+
+| # | Repository | Category |
 |---|---|---|
-| 1 | `project-alpha` | DEV TOOLS |
-| 2 | `llm-agent-lab` | AI |
-| 3 | `app-shell` | WEB |
-| 4 | `pipeline-ctl` | AUTOMATION |
-| 5 | `roblox-toolkit` | LUAU |
-| 6 | `market-sim` | FINANCE |
+| 1 | `syniscool` | ROBLOX UI |
+| 2 | `lucide-roblox` | LIBRARY |
+| 3 | `Blade-Ball-Sword` | GAME SCRIPT |
+| 4 | `BladeBallAbility` | ASSET SET |
+| 5 | `enum` | REFERENCE |
+
+Excluded on purpose: repos that are game exploit/cheat tooling
+(`vapev4clientnew`, `roblox-desync-lua`, `hwid`) — not appropriate for a
+professional profile.
 
 **Cards are not clickable.** The `repo ↗` label is decorative — SVG `<img>` tags
 cannot carry links. To get real links, delete the `<img>` tag for this panel and
@@ -75,10 +80,15 @@ use the markdown table below instead:
 
 Four groups, each between `<!-- EDIT:…:BEGIN -->` … `END`:
 
-- `EDIT:LANGUAGES` — TypeScript, JavaScript, Python, Lua / Luau, Java, C++
-- `EDIT:RUNTIME` — React, Next.js, Node.js, Docker, Linux
-- `EDIT:TOOLING` — Git, GitHub Actions, MCP, Automation, Testing
-- `EDIT:AI` — LLMs, AI coding agents, MCP servers, Prompting, Local AI
+- `EDIT:LANGUAGES` — Lua / Luau, Python, Shell
+- `EDIT:PLATFORM` — Roblox, Client modules, UI libraries
+- `EDIT:TOOLING` — Git, GitHub Actions, Bash
+- `EDIT:FOCUS` — AI-assisted dev, Automation, Systems, Markets & data
+
+Cards 1–3 are **evidenced by public repositories**. Card 4 (FOCUS) is
+deliberately dimmed and labelled as having no public repo yet, so unevidenced
+areas are not presented as proven skills. If you publish a repo for one of
+them, promote it into cards 1–3 and delete the note.
 
 **Delete what you do not actually use.** An inflated list is the fastest way to
 look like a résumé. If you drop a row, delete its name *and* caption line, and

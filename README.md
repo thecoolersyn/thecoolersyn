@@ -56,7 +56,7 @@
 <!-- ══════════════════ STACK ══════════════════ -->
 <div align="center">
 
-<img src="assets/stack/stack.svg" width="100%" alt="Technology stack panel: languages, runtime and framework, tooling, and AI developer tooling" />
+<img src="assets/stack/stack.svg" width="100%" alt="Public stack panel: languages, platform and tooling that appear in public repositories (Lua, Python, Shell, Roblox, Git, GitHub Actions, Bash), plus a dimmed card listing current focus areas that have no public repository yet" />
 
 <br>
 
@@ -158,7 +158,7 @@
 <!-- ══════════════════ PROJECTS ══════════════════ -->
 <div align="center">
 
-<img src="assets/projects/projects.svg" width="100%" alt="Featured projects panel laid out as a technical module rack with six project cards" />
+<img src="assets/projects/projects.svg" width="100%" alt="Featured repositories panel laid out as a module rack: syniscool, lucide-roblox, Blade-Ball-Sword, BladeBallAbility and enum" />
 
 <!--
   ────────────────────────────────────────────────────────────────────────────

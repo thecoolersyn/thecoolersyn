@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-labelledby="t d">
-  <title id="t">Selected systems — featured projects</title>
-  <desc id="d">Six project modules arranged as a technical rack connected by a bus line. Project names are placeholders to be replaced with real repositories.</desc>
+  <title id="t">Featured repositories</title>
+  <desc id="d">Five public repositories: syniscool, a themed Roblox user interface library; lucide-roblox, the Lucide icon set ported to Roblox; Blade-Ball-Sword, a Blade Ball sword ability; BladeBallAbility, a Blade Ball ability icon set; and enum, a Roblox KeyCode enum reference.</desc>
 
   <defs>
     <pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse">
@@ -12,32 +12,27 @@
   <rect width="1200" height="340" fill="url(#g)" opacity="0.3"/>
 
   <text x="16" y="26" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-        font-size="10" fill="#7A8B9C" letter-spacing="1.3">SELECTED SYSTEMS</text>
+        font-size="10" fill="#7A8B9C" letter-spacing="1.3">FEATURED REPOSITORIES</text>
   <text x="1184" y="26" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-        font-size="9" fill="#46586A" letter-spacing="0.8">06 modules · bus 0 · 0x7f3a9c21</text>
+        font-size="9" fill="#46586A" letter-spacing="0.8">05 of 10 public · bus 0 · 0x7f3a9c21</text>
   <line x1="16" y1="34" x2="1184" y2="34" stroke="#1C2530" stroke-width="1"/>
 
-  <!-- ══════════ BUS / CONNECTOR ROUTING ══════════
-       A horizontal spine with risers into each module, like a backplane. -->
+  <!-- ══════════ BUS / CONNECTOR ROUTING ══════════ -->
   <g stroke="#1C2530" stroke-width="1" fill="none">
     <path d="M28 58 H1172"/>
     <path d="M200 58 V74"/>
     <path d="M580 58 V74"/>
-    <path d="M960 58 V74"/>
-    <path d="M200 186 V210"/>
-    <path d="M580 186 V210"/>
-    <path d="M960 186 V210"/>
+    <path d="M980 58 V74"/>
+    <path d="M400 186 V210"/>
+    <path d="M980 186 V210"/>
   </g>
-  <!-- junction dots on the spine -->
   <g fill="#2A3644">
     <rect x="197" y="55" width="6" height="6" rx="1"/>
     <rect x="577" y="55" width="6" height="6" rx="1"/>
-    <rect x="957" y="55" width="6" height="6" rx="1"/>
-    <rect x="197" y="183" width="6" height="6" rx="1"/>
-    <rect x="577" y="183" width="6" height="6" rx="1"/>
-    <rect x="957" y="183" width="6" height="6" rx="1"/>
+    <rect x="977" y="55" width="6" height="6" rx="1"/>
+    <rect x="397" y="183" width="6" height="6" rx="1"/>
+    <rect x="977" y="183" width="6" height="6" rx="1"/>
   </g>
-  <!-- a dim pulse travelling the spine: the one animation on this panel -->
   <circle r="2.5" fill="#4DD9E8" opacity="0.8">
     <animateMotion dur="7s" begin="-1.5s" repeatCount="indefinite"
                    path="M28 58 H1172" keyPoints="0;1" keyTimes="0;1" calcMode="linear"/>
@@ -46,128 +41,109 @@
              keySplines="0.4 0 0.2 1;0 0 1 1;0.4 0 0.2 1" repeatCount="indefinite"/>
   </circle>
 
-  <!-- ══════════════════════════════════════════════════════════════════
-       MODULES — placeholder project names. Replace the name, description
-       and tech lines, and point the README link at your real repository.
-       Markers: EDIT:PROJECT:n:BEGIN / :END
-       ══════════════════════════════════════════════════════════════════ -->
-
-  <!-- EDIT:PROJECT:1:BEGIN -->
+  <!-- EDIT:PROJECT:1:BEGIN — thecoolersyn/syniscool -->
   <g>
     <rect x="28" y="74" width="344" height="112" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
     <g stroke="#2A3644" stroke-width="1" fill="none" opacity="0.8"><path d="M28 86V74h12"/></g>
     <text x="44" y="94" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="9" fill="#4DD9E8" letter-spacing="1.2">DEV TOOLS</text>
+          font-size="9" fill="#4DD9E8" letter-spacing="1.2">ROBLOX UI</text>
     <text x="356" y="94" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
           font-size="9" fill="#46586A" letter-spacing="0.8">mod 01</text>
     <text x="44" y="118" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="13" fill="#C9D4E0" letter-spacing="0.2">project-alpha</text>
+          font-size="13" fill="#C9D4E0" letter-spacing="0.2">syniscool</text>
     <text x="44" y="138" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="10" fill="#7A8B9C">A focused tool that removes one repetitive step.</text>
-    <text x="44" y="162" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="9" fill="#46586A" letter-spacing="0.6">TypeScript · Node · Git</text>
-    <text x="356" y="162" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="9" fill="#46586A">repo ↗</text>
+          font-size="10" fill="#7A8B9C">Themed Roblox UI library — tweened windows,</text>
+    <text x="44" y="154" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="10" fill="#7A8B9C">tabs and a game list on a shared theme table.</text>
+    <text x="44" y="176" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="9" fill="#46586A" letter-spacing="0.6">Lua · TweenService · UI</text>
+    <text x="356" y="176" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="9" fill="#46586A">github ↗</text>
   </g>
   <!-- EDIT:PROJECT:1:END -->
 
-  <!-- EDIT:PROJECT:2:BEGIN -->
+  <!-- EDIT:PROJECT:2:BEGIN — thecoolersyn/lucide-roblox -->
   <g>
     <rect x="408" y="74" width="344" height="112" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
     <g stroke="#2A3644" stroke-width="1" fill="none" opacity="0.8"><path d="M408 86V74h12"/></g>
     <text x="424" y="94" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="9" fill="#9B7BFF" letter-spacing="1.2">AI</text>
+          font-size="9" fill="#9B7BFF" letter-spacing="1.2">LIBRARY</text>
     <text x="736" y="94" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
           font-size="9" fill="#46586A" letter-spacing="0.8">mod 02</text>
     <text x="424" y="118" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="13" fill="#C9D4E0" letter-spacing="0.2">llm-agent-lab</text>
+          font-size="13" fill="#C9D4E0" letter-spacing="0.2">lucide-roblox</text>
     <text x="424" y="138" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="10" fill="#7A8B9C">Experiments in tool-using agents and evaluation.</text>
-    <text x="424" y="162" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="9" fill="#46586A" letter-spacing="0.6">Python · MCP · evals</text>
-    <text x="736" y="162" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="9" fill="#46586A">repo ↗</text>
+          font-size="10" fill="#7A8B9C">The Lucide icon set packaged for Roblox,</text>
+    <text x="424" y="154" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="10" fill="#7A8B9C">dropped in as a single Lua module.</text>
+    <text x="424" y="176" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="9" fill="#46586A" letter-spacing="0.6">Lua · asset port</text>
+    <text x="736" y="176" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="9" fill="#46586A">github ↗</text>
   </g>
   <!-- EDIT:PROJECT:2:END -->
 
-  <!-- EDIT:PROJECT:3:BEGIN -->
+  <!-- EDIT:PROJECT:3:BEGIN — thecoolersyn/Blade-Ball-Sword -->
   <g>
     <rect x="788" y="74" width="384" height="112" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
     <g stroke="#2A3644" stroke-width="1" fill="none" opacity="0.8"><path d="M788 86V74h12"/><path d="M1160 74h12v12"/></g>
     <text x="804" y="94" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="9" fill="#3DDC97" letter-spacing="1.2">WEB</text>
+          font-size="9" fill="#3DDC97" letter-spacing="1.2">GAME SCRIPT</text>
     <text x="1156" y="94" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
           font-size="9" fill="#46586A" letter-spacing="0.8">mod 03</text>
     <text x="804" y="118" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="13" fill="#C9D4E0" letter-spacing="0.2">app-shell</text>
+          font-size="13" fill="#C9D4E0" letter-spacing="0.2">Blade-Ball-Sword</text>
     <text x="804" y="138" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="10" fill="#7A8B9C">A web app built to be fast, typed and boring to break.</text>
-    <text x="804" y="162" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="9" fill="#46586A" letter-spacing="0.6">TypeScript · React · Next.js</text>
-    <text x="1156" y="162" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="9" fill="#46586A">repo ↗</text>
+          font-size="10" fill="#7A8B9C">A sword ability for Blade Ball — versioned,</text>
+    <text x="804" y="154" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="10" fill="#7A8B9C">with a separate test harness and version file.</text>
+    <text x="804" y="176" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="9" fill="#46586A" letter-spacing="0.6">Lua · game logic</text>
+    <text x="1156" y="176" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="9" fill="#46586A">github ↗</text>
   </g>
   <!-- EDIT:PROJECT:3:END -->
 
-  <!-- EDIT:PROJECT:4:BEGIN -->
+  <!-- EDIT:PROJECT:4:BEGIN — thecoolersyn/BladeBallAbility -->
   <g>
-    <rect x="28" y="210" width="344" height="112" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
+    <rect x="28" y="210" width="744" height="112" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
     <g stroke="#2A3644" stroke-width="1" fill="none" opacity="0.8"><path d="M28 222v-12h12"/></g>
     <text x="44" y="230" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="9" fill="#E8B44D" letter-spacing="1.2">AUTOMATION</text>
-    <text x="356" y="230" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="9" fill="#E8B44D" letter-spacing="1.2">ASSET SET</text>
+    <text x="756" y="230" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
           font-size="9" fill="#46586A" letter-spacing="0.8">mod 04</text>
     <text x="44" y="254" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="13" fill="#C9D4E0" letter-spacing="0.2">pipeline-ctl</text>
+          font-size="13" fill="#C9D4E0" letter-spacing="0.2">BladeBallAbility</text>
     <text x="44" y="274" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="10" fill="#7A8B9C">Small automations that run unattended and stay observable.</text>
+          font-size="10" fill="#7A8B9C">Icon set for Blade Ball abilities — artwork only, no code in this repository.</text>
     <text x="44" y="298" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="9" fill="#46586A" letter-spacing="0.6">Bash · Docker · Actions</text>
-    <text x="356" y="298" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="9" fill="#46586A">repo ↗</text>
+          font-size="9" fill="#46586A" letter-spacing="0.6">PNG · asset design</text>
+    <text x="756" y="298" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+          font-size="9" fill="#46586A">github ↗</text>
   </g>
   <!-- EDIT:PROJECT:4:END -->
 
-  <!-- EDIT:PROJECT:5:BEGIN -->
-  <g>
-    <rect x="408" y="210" width="344" height="112" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
-    <g stroke="#2A3644" stroke-width="1" fill="none" opacity="0.8"><path d="M408 222v-12h12"/></g>
-    <text x="424" y="230" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="9" fill="#4DD9E8" letter-spacing="1.2">LUAU</text>
-    <text x="736" y="230" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="9" fill="#46586A" letter-spacing="0.8">mod 05</text>
-    <text x="424" y="254" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="13" fill="#C9D4E0" letter-spacing="0.2">roblox-toolkit</text>
-    <text x="424" y="274" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="10" fill="#7A8B9C">Luau modules and tooling for game and platform work.</text>
-    <text x="424" y="298" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="9" fill="#46586A" letter-spacing="0.6">Luau · tooling</text>
-    <text x="736" y="298" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="9" fill="#46586A">repo ↗</text>
-  </g>
-  <!-- EDIT:PROJECT:5:END -->
-
-  <!-- EDIT:PROJECT:6:BEGIN -->
+  <!-- EDIT:PROJECT:5:BEGIN — thecoolersyn/enum -->
   <g>
     <rect x="788" y="210" width="384" height="112" rx="2" fill="#0A0E14" stroke="#1C2530" stroke-width="1"/>
     <g stroke="#2A3644" stroke-width="1" fill="none" opacity="0.8"><path d="M788 222v-12h12"/><path d="M1160 210h12v12"/></g>
     <text x="804" y="230" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="9" fill="#FF5C7A" fill-opacity="0.7" letter-spacing="1.2">FINANCE</text>
+          font-size="9" fill="#4DD9E8" letter-spacing="1.2">REFERENCE</text>
     <text x="1156" y="230" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="9" fill="#46586A" letter-spacing="0.8">mod 06</text>
+          font-size="9" fill="#46586A" letter-spacing="0.8">mod 05</text>
     <text x="804" y="254" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="13" fill="#C9D4E0" letter-spacing="0.2">market-sim</text>
+          font-size="13" fill="#C9D4E0" letter-spacing="0.2">enum</text>
     <text x="804" y="274" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="10" fill="#7A8B9C">Market structure simulation and research tooling.</text>
+          font-size="10" fill="#7A8B9C">KeyCode names mapped to their enum values.</text>
     <text x="804" y="298" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="9" fill="#46586A" letter-spacing="0.6">Python · quant · simulation</text>
+          font-size="9" fill="#46586A" letter-spacing="0.6">Lua · utility</text>
     <text x="1156" y="298" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-          font-size="9" fill="#46586A">repo ↗</text>
+          font-size="9" fill="#46586A">github ↗</text>
   </g>
-  <!-- EDIT:PROJECT:6:END -->
+  <!-- EDIT:PROJECT:5:END -->
 
   <text x="16" y="334" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
-        font-size="9" fill="#46586A" letter-spacing="0.7">placeholders · replace with your repos</text>
+        font-size="9" fill="#46586A" letter-spacing="0.7">public repositories · replace as better work lands</text>
   <text x="1184" y="334" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
         font-size="9" fill="#46586A" letter-spacing="0.7">λ=0.0021 · O(1) amortized</text>
 </svg>
